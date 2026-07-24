@@ -1449,8 +1449,3 @@ section.panels__5e434 .container__37e49     { order: var(--ics-panel-order-user)
   background-color: var(--background-main-transparency);
   backdrop-filter: var(--background-main-blur);
 }
-
-/* reduce the top height of the member group*/
-.membersGroup_c8ffbb:first-of-type {
-  margin-top: -30px !important;
-}
