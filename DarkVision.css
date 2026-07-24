@@ -1436,3 +1436,21 @@ section.panels__5e434 .container__37e49     { order: var(--ics-panel-order-user)
   background-color: var(--background-main-transparency);
   backdrop-filter: var(--background-main-blur);
 }
+
+/*quest thing near profile has transparency now*/
+.wrapper__0d616,
+.postEnrollmentBackground__24e2c {
+  background-color: var(--background-main-transparency);
+  backdrop-filter: var(--background-main-blur);
+}
+
+/*transparency on edit menu*/
+.menu_c1e9c4{
+  background-color: var(--background-main-transparency);
+  backdrop-filter: var(--background-main-blur);
+}
+
+/* reduce the top height of the member group*/
+.membersGroup_c8ffbb:first-of-type {
+  margin-top: -30px !important;
+}
