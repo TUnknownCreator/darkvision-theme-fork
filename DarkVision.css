@@ -1,5 +1,5 @@
 :root {
-  --theme-version: 'Dev 1.3.10 / 2.12.21'; /*fixes or more bugs, you choose*/
+  --theme-version: 'Dev 1.3.10 / 2.12.3'; /*fixes or more bugs, you choose*/
   --profile-gradient-overlay-color: #4d444444 !important;
   --theme-transparency-amount: 0.5;
   --theme-blur-amount: 1px;
@@ -20,6 +20,7 @@
   --text-muted: rgb(114, 118, 125);
   --channels-width: 220px;
   --members-width: 240px;
+  --fade-banner-invite: #131416;
 
   /* Background */
   --background-shading: 160%;
@@ -34,6 +35,8 @@
   --background-invert: 0%;
   --background-grayscale: 0%;
   --background-sepia: 0%;
+  --background-main-transparency: rgba(0, 0, 0, 0);
+  --background-main-blur: blur(40px);
 
   /* Home icon */
   --home-icon: url(https://discord.com/assets/7ebbc1790864207a.webp);
@@ -1401,4 +1404,35 @@ section.panels__5e434 .container__37e49     { order: var(--ics-panel-order-user)
 /* temp fix for button text colors (REMOVE)*/
 .lineClamp1__4bd52.text-md\/medium_cf4812 {
     color: var(--text-normal)
+}
+
+/*fade for server links (banner)*/
+.banner__083ae {
+    position: relative;
+}
+.banner__083ae::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%; 
+    background: linear-gradient(to top, var(--fade-banner-invite), transparent);
+    pointer-events: none; 
+}
+
+/*background transparency on onboarding*/
+/*promptContent_fe70ca    <-- this is unnecessary cus it's already transparent*/
+.prompt_fe70ca,
+.navButtons_fe70ca,
+.scrollerContent_fe70ca {
+  background-color: var(--background-main-transparency);
+  backdrop-filter: var(--background-main-blur)
+}
+
+/*quest thing near profile has transparency now*/
+.wrapper__0d616,
+.postEnrollmentBackground__24e2c {
+  background-color: var(--background-main-transparency);
+  backdrop-filter: var(--background-main-blur);
 }
