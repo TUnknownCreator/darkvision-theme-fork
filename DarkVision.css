@@ -38,7 +38,6 @@
   --background-main-transparency: rgba(0, 0, 0, 0);
   --background-main-blur: blur(40px);
 
-  /* Home icon */
   --home-icon: url(https://discord.com/assets/7ebbc1790864207a.webp);
   --home-position: center;
   --home-size: 50px;
@@ -131,7 +130,6 @@
   --chat-background-default: 0 0;
 }
 
-/* ── DVOA (DELETED SOON) ────────────────────────────────────────────────── */
 
 .dvoa-custom-background {
   display: none !important;
@@ -147,7 +145,7 @@
 
 
 
-/* ── VENCORD ────────────────────────────────────────────────── */
+/* VENCORD  */
 .vc-form-switch {
     margin-top: 20px;
 }
@@ -169,7 +167,8 @@
 }
 
 
-/* ── GENERAL TRANSPARENCY & BACKGROUNDS ──────────────────── */
+
+
 
 /* Activity itemcards */
 .itemCard__7e549 {
@@ -232,7 +231,6 @@
 }
 
 
-/* ── FRIENDLIST ───────────────────────────────────────────── */
 
 /* Buttons */
 .actionButton_f8fa06 {
@@ -319,7 +317,6 @@
 }
 
 
-/* ── NEW UI / AFTER UI_V2 CHANGE ────────────────────────────────────── */
 
 .base__5e434 .bar_c38106 .title_c38106 .text-sm\/medium_cf4812 {
   font-size: 0;
@@ -440,7 +437,7 @@
 }
 
 
-/* ── BORDERS ─────────────────────────────────────────────── */
+/* BORDERS */
 
 .container_c8ffbb {
   border: none !important;
@@ -496,7 +493,7 @@
 }
 
 
-/* ── CLAN TAGS ───────────────────────────────────────────── */
+/* CLAN TAGS */
 
 .avatarContainer_dca174  { background: none !important; }
 .container_dca174        { background-color: transparent !important; }
@@ -531,7 +528,7 @@ span.guildTagContainer__63ed3 {
 }
 
 
-/* ── BUTTONS ─────────────────────────────────────────────── */
+/* BUTTONS */
 
 /* Remove edit button on profile */
 .wrapper_d852db .button_fb7f94 {
@@ -580,7 +577,7 @@ span.guildTagContainer__63ed3 {
 }
 
 
-/* ── SERVER NITRO BOOST BAR TODO: FADE ──────────────────────────────── */
+/* SERVER NITRO BOOST BAR TODO: FADE */
 
 .progress__0d0f9,
 .progress__0d0f9:hover {
@@ -590,7 +587,7 @@ span.guildTagContainer__63ed3 {
 }
 
 
-/* ── VARIOUS UI FIXES ────────────────────────────────────── */
+/* VARIOUS UI FIXES */
 
 /* Profile text */
 .panelTitleContainer__37e49 [class*='cf48127484dbde85-text-md/medium'] {
@@ -734,7 +731,6 @@ span.guildTagContainer__63ed3 {
   border-radius: 100%;
 }
 
-/* If you not docked ur devtools this is a lifesaver */
 @media (max-width: 1500px) {
   .form_f75fb0 .scrollableContainer__74017 {
     overflow: visible !important;
@@ -778,7 +774,7 @@ span.guildTagContainer__63ed3 {
 }
 
 
-/* ── SETTINGS MENU ───────────────────────────────────────── */
+/* SETTINGS MENU */
 
 /* Translucent settings menu by benzeel V2 */
 
@@ -1158,10 +1154,12 @@ section.panels__5e434 .container__37e49     { order: var(--ics-panel-order-user)
       border-radius: inherit;
     }
 
-    > * {
-      position: relative;
-    }
-
+    /*  */
+      > * {
+        position: relative;
+      }
+    /*  */
+    
     > div.autocomplete__13533 {
       position: absolute;
     }
