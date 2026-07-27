@@ -21,7 +21,8 @@
   --channels-width: 220px;
   --members-width: 240px;
   --fade-banner-invite: #131416;
-
+  --onyx-profile-color: #0C0C0E;
+  
   /* Background */
   --background-shading: 160%;
   --background-image: url();
@@ -37,6 +38,7 @@
   --background-sepia: 0%;
   --background-main-transparency: rgba(0, 0, 0, 0);
   --background-main-blur: blur(40px);
+  --semi-tranparency: rgba(0, 0, 0, 0.5);
 
   --home-icon: url(https://discord.com/assets/7ebbc1790864207a.webp);
   --home-position: center;
@@ -1438,12 +1440,12 @@ section.panels__5e434 .container__37e49     { order: var(--ics-panel-order-user)
 /*quest thing near profile has transparency now*/
 .wrapper__0d616,
 .postEnrollmentBackground__24e2c {
-  background-color: var(--background-main-transparency);
-  backdrop-filter: var(--background-main-blur);
+  background-color: var(--onyx-profile-color);
+  background-image: none !important;
 }
 
 /*transparency on edit menu*/
 .menu_c1e9c4{
-  background-color: var(--background-main-transparency);
+  background-color: var(--semi-tranparency);
   backdrop-filter: var(--background-main-blur);
 }
