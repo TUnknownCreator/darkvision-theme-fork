@@ -552,9 +552,11 @@ span.guildTagContainer__63ed3 {
   display: none !important;
 }
 
+/* Probably Temp, but now buttons are fixed.
 .buttonChildrenWrapper_a22cb0 {
   background-color: var(--main-color);
 }
+*/
 
 .button_a22cb0 {
   border: none !important;
@@ -1399,11 +1401,6 @@ section.panels__5e434 .container__37e49     { order: var(--ics-panel-order-user)
     border-radius: 8px;
     margin: 16px 0;
     padding: 16px;
-}
-
-/* temp fix for button text colors (REMOVE) */
-.lineClamp1__4bd52.text-md\/medium_cf4812 {
-    color: var(--text-normal)
 }
 
 /* fade for server links (banner) */
