@@ -1345,6 +1345,15 @@ section.panels__5e434 .container__37e49     { order: var(--ics-panel-order-user)
   column-gap:  20px;
   row-gap:     20px;
 }
+/* if that plugin isnt enabled this will be used */
+.tabListScroller__37bfc:has(.top_aa8da2) .top_aa8da2 {
+  display:     flex !important;
+  flex-wrap:   wrap !important;
+  column-gap:  20px;
+  row-gap:     20px;
+}
+
+
 
 .tabBarItem__37bfc {
   margin-left: 0 !important;
