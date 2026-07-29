@@ -1,9 +1,9 @@
 :root {
-  --theme-version: 'Dev 1.2 / 2.13';
+  --theme-version: 'Dev 1.3.10 / 2.13.01';
   --profile-gradient-overlay-color: #4d444444 !important;
   --theme-transparency-amount: 0.5;
   --theme-blur-amount: 1px;
-  --main-color: #5865F2;
+  --main-color: #292929;
   --main-color-border: #1A1717;
   --hover-color: #747474;
   --success-color: #8411b9;
@@ -20,7 +20,9 @@
   --text-muted: rgb(114, 118, 125);
   --channels-width: 220px;
   --members-width: 240px;
-
+  --fade-banner-invite: #131416;
+  --onyx-profile-color: #0C0C0E;
+  
   /* Background */
   --background-shading: 160%;
   --background-image: url();
@@ -34,6 +36,9 @@
   --background-invert: 0%;
   --background-grayscale: 0%;
   --background-sepia: 0%;
+  --background-main-transparency: rgba(0, 0, 0, 0);
+  --background-main-blur: blur(40px);
+  --semi-tranparency: rgba(0, 0, 0, 0.5);
 
   --home-icon: url(https://discord.com/assets/7ebbc1790864207a.webp);
   --home-position: center;
@@ -547,9 +552,11 @@ span.guildTagContainer__63ed3 {
   display: none !important;
 }
 
+/* Probably Temp, but now buttons are fixed.
 .buttonChildrenWrapper_a22cb0 {
   background-color: var(--main-color);
 }
+*/
 
 .button_a22cb0 {
   border: none !important;
@@ -841,7 +848,7 @@ span.guildTagContainer__63ed3 {
 }
 
 
-/* ── SPOTIFY PLAYER ──────────────────────────────────────── */
+/* SPOTIFY PLAYER */
 
 /* Hide default album art */
 #vc-spotify-info-wrapper > img,
@@ -1088,7 +1095,7 @@ div[class*="card__"]:has(div[aria-label="Spotify"]) div[class*="actions__"] butt
   -webkit-backdrop-filter: blur(0px) !important;
 }
 
-/* ── USER PANEL ORDER ────────────────────────────────────── */
+/* USER PANEL ORDER */
 
 section.panels__5e434 {
   display:        flex;
@@ -1124,7 +1131,7 @@ section.panels__5e434 .container__37e49     { order: var(--ics-panel-order-user)
  */
 
 
-/* ── TRANSPARENT MESSAGING ───────────────────────────────── */
+/* TRANSPARENT MESSAGING */
 
 @container style(--tm-enable: 1) {
   form.formWithLoadedChatInput_f75fb0 {
@@ -1204,7 +1211,7 @@ section.panels__5e434 .container__37e49     { order: var(--ics-panel-order-user)
 }
 
 
-/* ── PROFILE (DELETED SOON) ───────────────────────────────── */
+/* PROFILE (DELETED SOON) */
 
 /* Keep header above background */
 .header__7f9c0 {
@@ -1255,7 +1262,7 @@ section.panels__5e434 .container__37e49     { order: var(--ics-panel-order-user)
 */
 
 
-/* ── PROFILE (DELETED SOON) ──────────────────────────────────────── */
+/* PROFILE (DELETED SOON) */
 
 /* Position fix for self profile background */
 .body_ce8328:has(.menus_ce8328) div[style*="background-image"] {
@@ -1290,7 +1297,7 @@ section.panels__5e434 .container__37e49     { order: var(--ics-panel-order-user)
 }
 
 
-/* ── CUSTOM TABS ─────────────────────────────────────────── */
+/* CUSTOM TABS */
 
 /* Tab list container */
 .top_aa8da2[role="tablist"] {
@@ -1329,27 +1336,7 @@ section.panels__5e434 .container__37e49     { order: var(--ics-panel-order-user)
   color: var(--text-normal, #ffffff) !important;
 }
 
-/* Tab Friend card */
-.root__49fc1.root__49fc1 {
-  background-color: rgba(19, 20, 22, .3);
-  border-radius:    var(--radius-md);
-}
-
-.footerSeparator__49fc1,
-.separator__49fc1 {
-  box-shadow:       none;
-  background-color: rgba(19, 20, 22, 0.1);
-}
-
-.tips_ea12e5 {
-  background-color: rgba(23, 24, 26, 0.6);
-  border-radius:    8px;
-  margin:           16px 0;
-  padding:          16px;
-}
-
-
-/* ── MISC ────────────────────────────────────────────────── */
+/* MISC */
 
 /* Mutual GDMs tab layout */
 .vc-mutual-gdms-modal-v2-tab-bar {
@@ -1383,4 +1370,79 @@ section.panels__5e434 .container__37e49     { order: var(--ics-panel-order-user)
   transform:        translateZ(0);
 }
 
-/*                                  */
+/* new view profile button is hidden */
+.redesignFooter__272c7{
+    display:none
+}
+
+.root__49fc1.root__49fc1,
+.footerSeparator__49fc1,
+.separator__49fc1,
+.tips_ea12e5 {
+    backdrop-filter: blur(12px);
+}
+
+/* invisible transparency with blur for modals background */
+.root__49fc1.root__49fc1 {
+    background-color: rgba(19, 20, 22, 0.5);
+    border-radius: var(--radius-md);
+}
+
+/* Separators fix */
+.footerSeparator__49fc1,
+.separator__49fc1 {
+    box-shadow: none;
+    background-color: rgba(19, 20, 22, 0.1);
+}
+
+/* Tips fix */
+.tips_ea12e5 {
+    background-color: rgba(23, 24, 26, 0.6);
+    border-radius: 8px;
+    margin: 16px 0;
+    padding: 16px;
+}
+
+/* fade for server links (banner) */
+.banner__083ae {
+    position: relative;
+}
+.banner__083ae::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%; 
+    background: linear-gradient(to top, var(--fade-banner-invite), transparent);
+    pointer-events: none; 
+}
+
+/* background transparency on onboarding */
+/* promptContent_fe70ca <-- this was unnecessary because it was already transparent */
+.prompt_fe70ca,
+.navButtons_fe70ca,
+.scrollerContent_fe70ca {
+  background-color: var(--background-main-transparency);
+  backdrop-filter: var(--background-main-blur)
+}
+
+/* quest thing near profile has transparency now */
+.wrapper__0d616,
+.postEnrollmentBackground__24e2c {
+  background-color: var(--background-main-transparency);
+  backdrop-filter: var(--background-main-blur);
+}
+
+/* quest thing near profile has transparency now */
+.wrapper__0d616,
+.postEnrollmentBackground__24e2c {
+  background-color: var(--onyx-profile-color);
+  background-image: none !important;
+}
+
+/* transparency on edit menu */
+.menu_c1e9c4{
+  background-color: var(--semi-tranparency);
+  backdrop-filter: var(--background-main-blur);
+}
