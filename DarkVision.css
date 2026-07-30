@@ -1436,14 +1436,7 @@ section.panels__5e434 .container__37e49     { order: var(--ics-panel-order-user)
   backdrop-filter: var(--background-main-blur)
 }
 
-/* quest thing near profile has transparency now */
-.wrapper__0d616,
-.postEnrollmentBackground__24e2c {
-  background-color: var(--background-main-transparency);
-  backdrop-filter: var(--background-main-blur);
-}
-
-/* quest thing near profile has transparency now */
+/* quest bar near profile has transparency now */
 .wrapper__0d616,
 .postEnrollmentBackground__24e2c {
   background-color: var(--onyx-profile-color);
