@@ -1225,7 +1225,8 @@ section.panels__5e434 .container__37e49     { order: var(--ics-panel-order-user)
 
 /* Create stacking context */
 .profile__9c3be {
-  transform: translateZ(0) !important;
+  isolation: isolate;
+  z-index: 1;
 }
 
 /* Stretch profile background image to fill */
