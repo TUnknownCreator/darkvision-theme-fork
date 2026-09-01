@@ -6,7 +6,7 @@
 > [!WARNING]
 > **Staging Environment**
 >
-> Experimental CSS changes are tested here before merging into the main DarkVision repository.
+> Experimental CSS changes are tested here before merging into the main [DarkVision](https://github.com/zafazu/DarkVision) repository.
 
 > [!NOTE]
 > **Compatibility**
