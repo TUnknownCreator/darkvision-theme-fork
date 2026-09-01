@@ -20,8 +20,8 @@
   --members-width: 240px;
   --fade-banner-invite: #131416;
   --onyx-profile-color: #0C0C0E;
-  /*t*/ --enable-transparency: 0; /*1 = true and 0 = false*/
-  /*t*/ --enable-blur: 0; /*1 = true and 0 = false*/
+  /*t*/ --enable-transparency: 1; /*1 = true and 0 = false*/
+  /*t*/ --enable-blur: 1; /*1 = true and 0 = false*/
 
   /* Background */
   --background-shading: 160%;
@@ -163,9 +163,6 @@
 }
 
 
-.dvoa-custom-background {
-  display: none !important;
-}
 
 .force-transparent-bg {
   overflow: visible !important;
