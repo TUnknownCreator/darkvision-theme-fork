@@ -1,5 +1,5 @@
 :root {
-  --theme-version: 'Dev1.3.52 / 2.16.42-preview';
+  --theme-version: 'Dev1.3.46 / 2.15.42-Preview';
   --profile-gradient-overlay-color: #4d444444 !important;
   --main-color: #292929;
   --main-color-border: #1A1717;
@@ -433,7 +433,7 @@
 }
 
 .visual-refresh:not(.platform-osx) .leading_c38106::after {
-    content: var(--theme-version); /* using ClearVision 7.0.1 */
+    content: var(--theme-version); /* 7.0.1 -- i don't know what this number does, i thought it was for clearvision but i don't think it is (was written "7.0.1" before in the content) */
   position: static;
   margin-top: -5px;
   margin-left: 5px;
