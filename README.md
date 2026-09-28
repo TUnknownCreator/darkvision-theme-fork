@@ -1,14 +1,45 @@
-> [!IMPORTANT]
-> **Temporary Repository**
->
-> Not intended for public use and may be deleted.
+<div align="center">
+
+<br>
+
+# DARKVISION FORK
+
+**A TESTING PLACE FOR DARKVISION'S CSS**
+
+<sub>Features are tested here first, then they move to the official repository.</sub>
+
+</div>
 
 > [!WARNING]
-> **Staging Environment**
+> **TEMPORARY REPOSITORY**
+> <br>Not intended for public use and may be deleted at any time.
 >
-> Experimental CSS changes are tested here before merging into the main [DarkVision](https://github.com/zafazu/DarkVision) repository.
+> **NOT STABLE**
+> <br>Anything here can break. For the stable version, use the [official DarkVision](https://github.com/zafazu/DarkVision).
 
-> [!NOTE]
-> **Compatibility**
->
-> Designed exclusively for the "Onyx" theme and [DVOA](https://github.com/zafazu/DarkVisionOA). Other setups are not supported.
+<br>
+
+## Branches
+
+| Branch | What it's for |
+| :-- | :-- |
+| `main` | Default branch, base of the fork |
+| `Preview` | Newest experiments, work in progress |
+| `current` | Used for pushing changes |
+
+<br>
+
+## Compatibility
+
+<div align="center">
+
+Mostly Compatible with **Onyx** theme
+<br>Made for **[DVOA](https://github.com/zafazu/DarkVisionOA)**
+
+</div>
+
+---
+
+<div align="center">
+  <sub>A fork of <a href="https://github.com/zafazu/DarkVision">zafazu/DarkVision</a> &nbsp;·&nbsp; /ˈdɑːrkˈvɪʒən/ (dark-vi-zhun)</sub>
+</div>
