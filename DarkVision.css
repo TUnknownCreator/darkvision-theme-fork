@@ -1,5 +1,5 @@
 :root {
-  --theme-version: 'Dev1.3.54 / 2.15.43-Preview';
+  --theme-version: 'Dev1.3.54 / 2.15.44-Preview';
   --profile-gradient-overlay-color: #4d444444 !important;
   --main-color: #292929;
   --main-color-border: #1A1717;
@@ -634,11 +634,13 @@ Temp Fix
 }
 */
 
+/*
+bugs search icons so it's commented [idk wht it does]
 .icon__0c4c4 {
   margin-top: 7px !important;
 }
 
-
+*/
 /* SERVER NITRO BOOST BAR TODO: FADE */
 
 .progress__0d0f9,
