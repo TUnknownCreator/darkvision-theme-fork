@@ -1,5 +1,5 @@
 :root {
-  --theme-version: 'Dev1.3.46 / 2.15.42-Preview';
+  --theme-version: 'Dev1.3.46 / 2.15.43-Preview';
   --profile-gradient-overlay-color: #4d444444 !important;
   --main-color: #292929;
   --main-color-border: #1A1717;
@@ -628,7 +628,7 @@ Temp Fix
   }
 }
 
-/* What idiot design this thing you did sir  fair enough
+/* and what idiot design this thing?  you did sir  fair enough
 .icon_a22cb0 {
   color: white;
 }
@@ -1172,9 +1172,15 @@ svg.vc-spotify-repeat {
     height: 100% !important;
     max-width: none !important;
     min-height: unset !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
     object-fit: cover !important;
+    object-position: center !important;
     z-index: -1 !important;
-    opacity: var(--transparency-spotify-artwork) !important;
+    opacity: var(--transparency-spotify-artwork, 1) !important;
+    filter: brightness(var(--isc-bg-brightness, 1)) !important;
   }
 
   .card__39ec2:has([aria-label="Spotify"]) .imagePosition_ef9ae7 {
@@ -1184,16 +1190,27 @@ svg.vc-spotify-repeat {
     height: 0 !important;
   }
 
+  /* fade under */
+  .card__39ec2:has([aria-label="Spotify"])::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background: linear-gradient(to bottom, transparent 68%, var(--isc-bg));
+  }
+
   .card__39ec2:has([aria-label="Spotify"]) .details__39ec2 {
     width: 100% !important;
     position: relative !important;
     z-index: 2 !important;
+    text-shadow: hsl(0, 0%, 25%) 1px 1px;
   }
 }
 
 /* spotify blur in the other places for the image */
-@container style(--enable-transparency: 1) {
-@container style(--enable-blur: 1) {
+@container style(--enable-transparency: 1) and style(--enable-blur: 1) {
   .card__39ec2:has([aria-label="Spotify"]) img.contentImage__42bf5 {
     filter: blur(var(--isc-bg-blur)) brightness(var(--isc-bg-brightness, 1)) !important;
 
@@ -1203,9 +1220,9 @@ svg.vc-spotify-repeat {
     height: calc(100% + var(--isc-bg-blur) * 2) !important;
   }
 }
-}
-.progress__8e51c{
-  background-color: var(--isc-progress-bar)
+
+.progress__8e51c {
+  background-color: var(--isc-progress-bar);
 }
 
 /* Spotify extended blur for the buttons and stuff (basically the stuff above with buttons having same features) */
@@ -1252,40 +1269,73 @@ div[class*="card__"]:has(div[aria-label="Spotify"]) div[class*="actions__"] butt
   }
 
   .section__00943:has(.spotifySection__00943) .activitySectionAssets__00943 {
-    position: absolute !important;
-    inset:    0 !important;
-    width:    100% !important;
-    height:   100% !important;
-    z-index:  -1 !important;
+    position:      absolute !important;
+    inset:         0 !important;
+    width:         100% !important;
+    height:        100% !important;
+    margin:        0 !important;
+    padding:       0 !important;
+    border-radius: 0 !important;
+    overflow:      visible !important;
+    background:    none !important;
+    z-index:       -1 !important;
   }
 
   .section__00943:has(.spotifySection__00943) img.largeImage__00943 {
-    position:    absolute !important;
-    top:         0 !important;
-    left:        0 !important;
-    width:       100% !important;
-    height:      100% !important;
-    max-width:   none !important;
-    min-height:  unset !important;
-    object-fit:  cover !important;
-    opacity:     var(--transparency-spotify-artwork) !important;
+    position:      absolute !important;
+    top:           0 !important;
+    left:          0 !important;
+    width:         100% !important;
+    height:        100% !important;
+    max-width:     none !important;
+    min-height:    unset !important;
+    margin:        0 !important;
+    padding:       0 !important;
+    border-radius: 0 !important;
+    box-shadow:    none !important;
+    object-fit:    cover !important;
+    object-position: center !important;
+    opacity:       var(--transparency-spotify-artwork, 1) !important;
+    filter:        brightness(var(--isc-bg-brightness, 1)) !important;
+  }
+
+  /* fade under */
+  .section__00943:has(.spotifySection__00943)::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background: linear-gradient(to bottom, transparent 68%, var(--isc-bg));
   }
 
   .section__00943:has(.spotifySection__00943) .activitySectionAssets__00943 + div {
+    position: relative !important;
+    z-index: 2 !important;
     width: 100% !important;
+    text-shadow: hsl(0, 0%, 25%) 1px 1px;
   }
 }
 
-@container style(--enable-transparency: 1) {
-  @container style(--enable-blur: 1) {
-    .section__00943:has(.spotifySection__00943) img.largeImage__00943 {
-      filter: blur(var(--isc-bg-blur)) brightness(var(--isc-bg-brightness, 1)) !important;
+@container style(--enable-transparency: 1) and style(--enable-blur: 1) {
+  .section__00943:has(.spotifySection__00943) img.largeImage__00943 {
+    filter: blur(var(--isc-bg-blur)) brightness(var(--isc-bg-brightness, 1)) !important;
 
-      top:    calc(var(--isc-bg-blur) * -1) !important;
-      left:   calc(var(--isc-bg-blur) * -1) !important;
-      width:  calc(100% + var(--isc-bg-blur) * 2) !important;
-      height: calc(100% + var(--isc-bg-blur) * 2) !important;
-    }
+    top:    calc(var(--isc-bg-blur) * -1) !important;
+    left:   calc(var(--isc-bg-blur) * -1) !important;
+    width:  calc(100% + var(--isc-bg-blur) * 2) !important;
+    height: calc(100% + var(--isc-bg-blur) * 2) !important;
+  }
+}
+
+/* tooltip fix */
+@container style(--enable-transparency: 1) {
+  .card__39ec2:has([aria-label="Spotify"]) .imagePosition_ef9ae7,
+  .card__39ec2:has([aria-label="Spotify"]) img.contentImage__42bf5,
+  .section__00943:has(.spotifySection__00943) .activitySectionAssets__00943,
+  .section__00943:has(.spotifySection__00943) img.largeImage__00943 {
+    pointer-events: none !important;
   }
 }
 
