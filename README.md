@@ -24,7 +24,7 @@
 | Branch | What it's for |
 | :-- | :-- |
 | `main` | Default branch |
-| `Preview` | Newest experiments, work in progress |
+| `Preview` | Newest Features / Fixes |
 | `current` | Used for pushing changes |
 
 <br>
