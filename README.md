@@ -23,7 +23,7 @@
 
 | Branch | What it's for |
 | :-- | :-- |
-| `main` | Default branch, base of the fork |
+| `main` | Default branch |
 | `Preview` | Newest experiments, work in progress |
 | `current` | Used for pushing changes |
 
