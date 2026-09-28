@@ -635,12 +635,11 @@ Temp Fix
 */
 
 /*
-bugs search icons so it's commented [idk wht it does]
 .icon__0c4c4 {
-  margin-top: 7px !important;
+  margin-top: 7px;
 }
-
 */
+
 /* SERVER NITRO BOOST BAR TODO: FADE */
 
 .progress__0d0f9,
@@ -1883,78 +1882,67 @@ hide platform badge on chat
 
 /* typing indicator */
 
-:root {
-  --typing-speed: 1.3s;
-}
-
-.typing_b88801,
-.typing_b88801 .typingDots_b88801 {
-  background: transparent !important;
-  background-color: transparent !important;
-  box-shadow: none !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-}
-
 .typing_b88801 {
-  display: flex !important;
-  align-items: flex-end !important;
-z-index: 2 !important;
-  height: 25px !important;
-  padding: 0 10px 4px 18px !important;
-  background: transparent !important;
-  margin-bottom: 16px !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
+  display: flex;
+  align-items: flex-end;
+  z-index: 2;
+  height: 25px;
+  padding: 0 10px 4px 18px;
+  margin-bottom: 16px;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
 }
 
-/* dots */
+/* dots container */
 .typing_b88801 .typingDots_b88801 {
-  position: relative !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 8px !important;
-  width: fit-content !important;
-  padding: 4px 15px 4px 12px !important;
-  border-radius: 999px !important;
-  background: transparent !important;
-  border: none !important;
-  overflow: hidden !important;
-  animation: tiIn 0.38s cubic-bezier(0.2, 0.9, 0.3, 1.15) both !important;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  padding: 4px 15px 4px 12px;
+  border-radius: 999px;
+  border: none;
+  overflow: hidden;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  animation: tiIn 0.38s cubic-bezier(0.2, 0.9, 0.3, 1.15) both;
 }
 
 @keyframes tiIn {
   from { opacity: 0; transform: translateY(7px) scale(0.94); }
-  to   { opacity: 1; transform: translateY(0)  scale(1); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-/* wave dots */
+/* wave dots thingys that move */
 .typing_b88801 .typingDots_b88801 svg.ellipsis_b88801 {
-  display: block !important;
-  flex: 0 0 auto !important;
-  width: 21px !important;
-  height: 14px !important;
-  overflow: visible !important;
-  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--success-color) 65%, transparent)) !important;
+  display: block;
+  flex: 0 0 auto;
+  width: 21px;
+  height: 14px;
+  overflow: visible;
+  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--success-color) 65%, transparent));
 }
 
 .typing_b88801 .typingDots_b88801 svg.ellipsis_b88801 g {
-  animation: none !important;
-  opacity: 1 !important;
+  animation: none;
+  opacity: 1;
 }
 
 .typing_b88801 .typingDots_b88801 svg.ellipsis_b88801 circle {
-  r: 2.2px !important;
-  cy: 11.5px !important;
-  fill: var(--text-normal) !important;
-  transform-box: fill-box !important;
-  transform-origin: 50% 100% !important;
-  animation: tiWave var(--typing-speed) cubic-bezier(0.37, 0, 0.55, 1) infinite !important;
+  r: 2.2px;
+  cy: 11.5px;
+  fill: var(--text-normal);
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: tiWave var(--typing-speed) cubic-bezier(0.37, 0, 0.55, 1) infinite;
 }
 
-.typing_b88801 .typingDots_b88801 svg.ellipsis_b88801 circle:nth-of-type(1) { cx: 3px    !important; }
-.typing_b88801 .typingDots_b88801 svg.ellipsis_b88801 circle:nth-of-type(2) { cx: 10.4px !important; animation-delay: 0.17s !important; }
-.typing_b88801 .typingDots_b88801 svg.ellipsis_b88801 circle:nth-of-type(3) { cx: 17.8px !important; animation-delay: 0.34s !important; }
+.typing_b88801 .typingDots_b88801 svg.ellipsis_b88801 circle:nth-of-type(1) { cx: 3px; }
+.typing_b88801 .typingDots_b88801 svg.ellipsis_b88801 circle:nth-of-type(2) { cx: 10.4px; animation-delay: 0.17s; }
+.typing_b88801 .typingDots_b88801 svg.ellipsis_b88801 circle:nth-of-type(3) { cx: 17.8px; animation-delay: 0.34s; }
 
 @keyframes tiWave {
   0%, 100% { transform: scaleY(0.28); }
@@ -1963,17 +1951,17 @@ z-index: 2 !important;
 
 /* text label */
 .typing_b88801 .typingDots_b88801 span.text_b88801:not([style]) {
-  margin: 0 !important;
-  color: var(--text-muted) !important;
-  font-size: 13px !important;
-  font-weight: 500 !important;
-  letter-spacing: 0.01em !important;
-  line-height: 1 !important;
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1;
 }
 
 .typing_b88801 .typingDots_b88801 span.text_b88801:not([style]) strong {
-  color: var(--text-normal) !important;
-  font-weight: 700 !important;
+  color: var(--text-normal);
+  font-weight: 700;
 }
 
 /* profile customization section */
@@ -2000,7 +1988,7 @@ z-index: 2 !important;
   transition: background-color 0.25s ease-in-out, transform 0.25s ease-in-out;
 }
 .interactive__972a0:hover {
-  background-color: rgba(255, 255, 255, 0.07); /* Adjust color to your theme */
+  background-color: rgba(255, 255, 255, 0.07);
 }
 
 /* profile customization section */
@@ -2027,15 +2015,15 @@ z-index: 2 !important;
   transition: background-color 0.25s ease-in-out, transform 0.25s ease-in-out;
 }
 .interactive__972a0:hover {
-  background-color: rgba(255, 255, 255, 0.07); /* Adjust color to your theme */
+  background-color: rgba(255, 255, 255, 0.07); 
 }
 
 /*Unread Message transparency / blur stuff*/
 
 .newMessagesBar__0f481,
 barBase__0f481,
-barButtonMain__0f481,
-barButtonBase__0f481 {
+.barButtonMain__0f481,
+.barButtonBase__0f481 {
     background-color: var(--transparency-new-message);
     backdrop-filter: blur(var(--background-blur));
 }
