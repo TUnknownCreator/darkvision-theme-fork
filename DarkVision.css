@@ -1,5 +1,5 @@
 :root {
-  --theme-version: 'Dev1.3.54 / 2.15.45-Preview';
+  --theme-version: 'Dev1.3.54 / 2.15.46-Preview';
   --profile-gradient-overlay-color: #4d444444 !important;
   --main-color: #292929;
   --main-color-border: #1A1717;
@@ -978,7 +978,7 @@ Temp Fix
 }
 
 /* Gradient fade at bottom */
-#vc-spotify-player::after {
+.panels__5e434:not(:has([style*="--custom-nameplate"])) #vc-spotify-player::after {
   position:       absolute;
   top:            0;
   left:           0;
@@ -1155,6 +1155,23 @@ svg.vc-spotify-repeat {
   font-size:     1em;
 }
 
+/* Only when the user has a nameplate */
+.panels__5e434:has([style*="--custom-nameplate"]) #vc-spotify-player {
+  position:      relative;
+  border-radius: 8px 8px 0 0;
+}
+
+.panels__5e434:has([style*="--custom-nameplate"]) .container__37e49 {
+  position:      relative;
+  z-index:       2;
+  overflow:      hidden;
+  border-radius: 0 0 8px 8px;
+}
+
+.panels__5e434:has([style*="--custom-nameplate"]) .container_df39b2 {
+  border-radius: inherit;
+  overflow:      hidden;
+}
 
 /* Spotify transparency thing extended for other places*/
 
@@ -1191,16 +1208,6 @@ svg.vc-spotify-repeat {
     height: 0 !important;
   }
 
-  /* fade under */
-  .card__39ec2:has([aria-label="Spotify"])::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    border-radius: inherit;
-    pointer-events: none;
-    background: linear-gradient(to bottom, transparent 68%, var(--isc-bg));
-  }
 
   .card__39ec2:has([aria-label="Spotify"]) .details__39ec2 {
     width: 100% !important;
