@@ -1,5 +1,5 @@
 :root {
-  --theme-version: 'Dev1.3.54 / 2.15.47-Preview';
+  --theme-version: 'Dev1.3.54 / 2.15.49';
   --profile-gradient-overlay-color: #4d444444 !important;
   --main-color: #292929;
   --main-color-border: #1A1717;
@@ -1580,30 +1580,30 @@ section.panels__5e434 .container__37e49     { order: var(--ics-panel-order-user)
 
 /* Tab items */
 .tabBarItem__37bfc.item_aa8da2 {
-  padding:        8px 10px !important;
-  margin:         0 !important;
-  font-size:      14px !important;
-  font-weight:    500 !important;
-  border-radius:  8px !important;
-  cursor:         pointer !important;
-  display:        inline-flex !important;
-  align-items:    center !important;
-  justify-content: center !important;
-  color:          var(--text-muted, #949ba4) !important;
+  padding:        8px 10px;
+  margin:         0;
+  font-size:      14px;
+  font-weight:    500;
+  border-radius:  8px;
+  cursor:         pointer;
+  display:        inline-flex;
+  align-items:    center;
+  justify-content: center;
+  color:          var(--text-muted, #949ba4);
   transition:
     background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
     color            0.2s cubic-bezier(0.4, 0, 0.2, 1),
-    transform        0.1s ease !important;
+    transform        0.1s ease;
 }
 
 /* Tab hover state */
 .tabBarItem__37bfc.item_aa8da2:hover {
-  color: var(--text-normal, #f2f3f5) !important;
+  color: var(--text-normal, #f2f3f5);
 }
 
 /* Tab selected state */
 .tabBarItem__37bfc.item_aa8da2.selected_aa8da2 {
-  color: var(--text-normal, #ffffff) !important;
+  color: var(--text-normal, #ffffff);
 }
 
 /* MISC */
@@ -1952,7 +1952,7 @@ hide platform badge on chat
   50%      { transform: scaleY(2.2); }
 }
 
-/* text label */
+/* text label  */
 .typing_b88801 .typingDots_b88801 span.text_b88801:not([style]) {
   margin: 0;
   color: var(--text-muted);
@@ -1996,12 +1996,22 @@ hide platform badge on chat
 
 /*Unread Message transparency / blur stuff*/
 
-.newMessagesBar__0f481,
-.barBase__0f481,
-.barButtonMain__0f481,
-.barButtonBase__0f481 {
-    background-color: var(--transparency-new-message);
-    backdrop-filter: blur(var(--background-blur));
+@container style(--enable-transparency: 1) {
+    .newMessagesBar__0f481,
+    .barBase__0f481,
+    .barButtonMain__0f481,
+    .barButtonBase__0f481 {
+        background-color: var(--transparency-new-message);
+    }
+}
+
+@container style(--enable-blur: 1) {
+    .newMessagesBar__0f481,
+    .barBase__0f481,
+    .barButtonMain__0f481,
+    .barButtonBase__0f481 {
+        backdrop-filter: blur(var(--background-blur));
+    }
 }
 
 /*
@@ -2014,23 +2024,67 @@ this removes links and badges
 /*stuff to test (still)*/
 
 /*inbox*/
-.container__8cb2e{
-    background-color: var(--background-main-transparency);
-    backdrop-filter: blur(var(--background-blur));
+@container style(--enable-transparency: 1) {
+    .container__8cb2e {
+        background-color: var(--background-main-transparency);
+    }
+
+    .box__376cb {
+        background-color: rgba(0,0,0,1);
+    }
+
+    .channelHeader__5d903 {
+        background-color: rgba(0,0,0,1);
+    }
 }
-.box__376cb{
-    background-color: rgba(0,0,0,1);
-}
-.channelHeader__5d903{
-    background-color: rgba(0,0,0,1);
+
+@container style(--enable-blur: 1) {
+    .container__8cb2e {
+        backdrop-filter: blur(var(--background-blur));
+    }
 }
 
 /*tooltip (for user profile?)*/
-.tooltipPrimary_c36707 {
-    background-color: rgba(0,0,0,0) !important;
-    backdrop-filter: blur(5px) !important;
+@container style(--enable-transparency: 1) {
+    .tooltipPrimary_c36707 {
+        background-color: rgba(0,0,0,0) !important;
+    }
+
+    .tooltipPointerBg_c36707 {
+        border-top-color: rgba(0,0,0,0) !important;
+    }
 }
 
-.tooltipPointerBg_c36707 {
-    border-top-color: rgba(0,0,0,0) !important;
+@container style(--enable-blur: 1) {
+    .tooltipPrimary_c36707 {
+        backdrop-filter: blur(5px) !important;
+    }
+}
+
+/*transparency to dropdown (server tags, idk if more...)*/
+@container style(--enable-transparency: 1) {
+    .selectDropdown__0edde {
+        background-color: rgba(0,0,0,0);
+    }
+}
+
+@container style(--enable-blur: 1) {
+    .selectDropdown__0edde {
+        backdrop-filter: blur(10px);
+    }
+}
+
+/* pinned message*/
+@container style(--enable-transparency: 1) {
+    .header__432f4,
+    .messagesPopoutWrap__432f4 {
+        background-color: rgba(0,0,0,0);
+    }
+}
+
+@container style(--enable-blur: 1) {
+    .header__432f4,
+    .messagesPopoutWrap__432f4 {
+        backdrop-filter: blur(25px);
+    }
 }
