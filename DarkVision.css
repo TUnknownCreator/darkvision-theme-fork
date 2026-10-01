@@ -1,5 +1,5 @@
 :root {
-  --theme-version: 'Dev1.3.46 / 2.14.3';
+  --theme-version: 'Dev1.3.54 / 2.15.49';
   --profile-gradient-overlay-color: #4d444444 !important;
   --main-color: #292929;
   --main-color-border: #1A1717;
@@ -19,13 +19,13 @@
   --channels-width: 220px;
   --members-width: 240px;
   --fade-banner-invite: #131416;
-  --onyx-profile-color: #0C0C0E;
+  --onyx-profile-color: rgb(0, 0, 0);
   /*t*/ --enable-transparency: 1; /*1 = true and 0 = false*/
   /*t*/ --enable-blur: 1; /*1 = true and 0 = false*/
 
   /* Background */
   --background-shading: 160%;
-  --background-image: url();
+  --background-image: url(); /*does not work btw*/
   --background-position: center;
   --background-size: 125%;
   --background-repeat: repeat;
@@ -91,10 +91,10 @@
   --transparency-tips: rgba(23, 24, 26, 0.6);
   --transparency-banner-button: #00000063;
   --transparency-scrim: #000000cc;
-  --transparency-spotify-button: rgba(88, 101, 242, 0.2);
+  --transparency-spotify-button: rgba(38, 39, 43, 0.2);
   --transparency-menu: rgba(0, 0, 0, 0.5);
   --transparency-spotify-artwork: 0.3;
-
+  --transparency-new-message: rgba(0,0,0,0);
   /* User popout */
   --user-popout-image: var(--background-image);
   --user-popout-position: var(--background-position);
@@ -160,9 +160,15 @@
   /* Transparent messaging */
   --tm-enable:               1;
   --tm-blur:                 10px;
+
+  /* Typing indicator */
+  --typing-speed: 1.3s;
 }
 
 
+.dvoa-custom-background {
+  display: none !important;
+}
 
 .force-transparent-bg {
   overflow: visible !important;
@@ -315,7 +321,7 @@
   display: none;
 }
 
-/* Searchbar removal */
+/* Searchbar removal (idk which search bar this removes sowry)*/
 .searchBarComponent__35e86,
 .searchBar_e6b769 {
   display: none;
@@ -339,16 +345,23 @@
   position: relative;
 }
 
-/* Friend status */
+
+/*
+" Friend status "
+ this is the activity thing idk who called this friend status
+
 .container_c9d15c {
   display: none;
 }
+*/
 
-/* Add Friend tab highlight */
+
+/*  i don't think you will need this [OLD]
+
 .tabBar__133bf :last-child {
   background-color: var(--main-color) !important;
 }
-
+*/
 
 
 .base__5e434 .bar_c38106 .title_c38106 .text-sm\/medium_cf4812 {
@@ -420,7 +433,6 @@
 }
 
 .visual-refresh:not(.platform-osx) .leading_c38106::after {
-  content: '7.0.1';
   position: static;
   margin-top: -5px;
   margin-left: 5px;
@@ -441,9 +453,6 @@
   display: none;
 }
 
-.title_edbb22 {
-  display: none;
-}
 
 /* Active Now text */
 .header__7d20c {
@@ -522,11 +531,9 @@
 .container_f37cb1 { border-top-color: #5c4e47 !important; }
 .container__2637a { border-top-color: #5c4e47 !important; }
 
-.title_edbb22,
-.searchBar_e6b769 {
+.title_edbb22 {
   display: none;
 }
-
 
 /* CLAN TAGS */
 
@@ -536,7 +543,7 @@
 
 @container style(--enable-transparency: 1) {
   .avatarContainer_dca174  { background: none !important; }
-  .container_dca174        { background-color: transparent !important; }
+  /* .container_dca174        { background-color: transparent !important; } <-- bad boy~ */
   .avatarWrapper_dca174    { background-color: transparent !important; }
   .chipletContainerInner__10651 { background-color: transparent !important; }
 
@@ -588,10 +595,6 @@ span.guildTagContainer__63ed3 {
   }
 }
 
-.button_e6e74f {
-  display: none !important;
-}
-
 /*
 Temp Fix
 
@@ -619,14 +622,17 @@ Temp Fix
   }
 }
 
+/* and what idiot design this thing?  you did sir  fair enough
 .icon_a22cb0 {
   color: white;
 }
+*/
 
+/*
 .icon__0c4c4 {
-  margin-top: 7px !important;
+  margin-top: 7px;
 }
-
+*/
 
 /* SERVER NITRO BOOST BAR TODO: FADE */
 
@@ -836,7 +842,7 @@ Temp Fix
 
 /* SETTINGS MENU */
 
-/* Translucent settings menu by benzeel V2 */
+/* Translucent settings menu by benzeel/computercat V2 */
 
 .fixedContent__409aa:after {
   border-top-left-radius:  8px;
@@ -935,6 +941,7 @@ Temp Fix
 
 
 /* SPOTIFY PLAYER */
+/*Thanks to Soul, https://github.com/ISOUL22/rice*/
 
 /* Hide default album art */
 #vc-spotify-info-wrapper > img,
@@ -965,7 +972,7 @@ Temp Fix
 }
 
 /* Gradient fade at bottom */
-#vc-spotify-player::after {
+.panels__5e434:not(:has([style*="--custom-nameplate"])) #vc-spotify-player::after {
   position:       absolute;
   top:            0;
   left:           0;
@@ -1034,19 +1041,19 @@ Temp Fix
   margin: 0;
 }
 
-#vc-spotify-player .bar_a562c8 {
+#vc-spotify-player .bar__4c059 {
   background-color: var(--isc-progress-bar-track);
 }
 
-#vc-spotify-player .barFill_a562c8 {
+#vc-spotify-player .barFill__4c059 {
   background-color: var(--isc-progress-bar);
 }
 
-#vc-spotify-progress-bar:hover .barFill_a562c8 {
+#vc-spotify-progress-bar:hover .barFill__4c059 {
   background-color: var(--isc-progress-bar-hover);
 }
 
-#vc-spotify-progress-bar .grabber_a562c8 {
+#vc-spotify-progress-bar .grabber__4c059 {
   visibility:       hidden;
   opacity:          0;
   transition:       opacity 0.1s;
@@ -1058,7 +1065,7 @@ Temp Fix
   background-color: var(--isc-progress-bar-hover);
 }
 
-#vc-spotify-progress-bar:hover .grabber_a562c8 {
+#vc-spotify-progress-bar:hover .grabber__4c059 {
   visibility: visible;
   opacity:    1;
 }
@@ -1142,6 +1149,23 @@ svg.vc-spotify-repeat {
   font-size:     1em;
 }
 
+/* Only when the user has a nameplate */
+.panels__5e434:has([style*="--custom-nameplate"]) #vc-spotify-player {
+  position:      relative;
+  border-radius: 8px 8px 0 0;
+}
+
+.panels__5e434:has([style*="--custom-nameplate"]) .container__37e49 {
+  position:      relative;
+  z-index:       2;
+  overflow:      hidden;
+  border-radius: 0 0 8px 8px;
+}
+
+.panels__5e434:has([style*="--custom-nameplate"]) .container_df39b2 {
+  border-radius: inherit;
+  overflow:      hidden;
+}
 
 /* Spotify transparency thing extended for other places*/
 
@@ -1160,9 +1184,15 @@ svg.vc-spotify-repeat {
     height: 100% !important;
     max-width: none !important;
     min-height: unset !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
     object-fit: cover !important;
+    object-position: center !important;
     z-index: -1 !important;
-    opacity: var(--transparency-spotify-artwork) !important;
+    opacity: var(--transparency-spotify-artwork, 1) !important;
+    filter: brightness(var(--isc-bg-brightness, 1)) !important;
   }
 
   .card__39ec2:has([aria-label="Spotify"]) .imagePosition_ef9ae7 {
@@ -1172,15 +1202,29 @@ svg.vc-spotify-repeat {
     height: 0 !important;
   }
 
+
   .card__39ec2:has([aria-label="Spotify"]) .details__39ec2 {
     width: 100% !important;
     position: relative !important;
     z-index: 2 !important;
+    text-shadow: hsl(0, 0%, 25%) 1px 1px;
   }
 }
 
-.progress__8e51c{
-  background-color: var(--isc-progress-bar)
+/* spotify blur in the other places for the image */
+@container style(--enable-transparency: 1) and style(--enable-blur: 1) {
+  .card__39ec2:has([aria-label="Spotify"]) img.contentImage__42bf5 {
+    filter: blur(var(--isc-bg-blur)) brightness(var(--isc-bg-brightness, 1)) !important;
+
+    top:    calc(var(--isc-bg-blur) * -1) !important;
+    left:   calc(var(--isc-bg-blur) * -1) !important;
+    width:  calc(100% + var(--isc-bg-blur) * 2) !important;
+    height: calc(100% + var(--isc-bg-blur) * 2) !important;
+  }
+}
+
+.progress__8e51c {
+  background-color: var(--isc-progress-bar);
 }
 
 /* Spotify extended blur for the buttons and stuff (basically the stuff above with buttons having same features) */
@@ -1191,7 +1235,7 @@ div[class*="card__"]:has(div[aria-label="Spotify"]) div[class*="actions__"] butt
 }
 
 div[class*="card__"]:has(div[aria-label="Spotify"]) div[class*="actions__"] button[class*="button_"]:hover div[class*="buttonChildrenWrapper_"] {
-  background-color: var(--main-color, #5865F2) !important;
+  background-color: var(--main-color) !important;
 }
 
 @container style(--enable-transparency: 1) {
@@ -1211,6 +1255,100 @@ div[class*="card__"]:has(div[aria-label="Spotify"]) div[class*="actions__"] butt
     -webkit-backdrop-filter: blur(0px) !important;
   }
 }
+
+/*spotify image extention (transparency + blur) to the friends page*/
+@container style(--enable-transparency: 1) {
+  .section__00943:has(.spotifySection__00943) {
+    position:         relative !important;
+    overflow:         hidden !important;
+    z-index:          1 !important;
+    background-color: transparent !important;
+  }
+
+  .section__00943:has(.spotifySection__00943) .spotifySection__00943.activitySection__00943 {
+    display:              grid !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  .section__00943:has(.spotifySection__00943) .activitySectionAssets__00943 {
+    position:      absolute !important;
+    inset:         0 !important;
+    width:         100% !important;
+    height:        100% !important;
+    margin:        0 !important;
+    padding:       0 !important;
+    border-radius: 0 !important;
+    overflow:      visible !important;
+    background:    none !important;
+    z-index:       -1 !important;
+  }
+
+  .section__00943:has(.spotifySection__00943) img.largeImage__00943 {
+    position:      absolute !important;
+    top:           0 !important;
+    left:          0 !important;
+    width:         100% !important;
+    height:        100% !important;
+    max-width:     none !important;
+    min-height:    unset !important;
+    margin:        0 !important;
+    padding:       0 !important;
+    border-radius: 0 !important;
+    box-shadow:    none !important;
+    object-fit:    cover !important;
+    object-position: center !important;
+    opacity:       var(--transparency-spotify-artwork, 1) !important;
+    filter:        brightness(var(--isc-bg-brightness, 1)) !important;
+  }
+
+  /* fade under */
+  .section__00943:has(.spotifySection__00943)::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background: linear-gradient(to bottom, transparent 68%, var(--isc-bg));
+  }
+
+  .section__00943:has(.spotifySection__00943) .activitySectionAssets__00943 + div {
+    position: relative !important;
+    z-index: 2 !important;
+    width: 100% !important;
+    text-shadow: hsl(0, 0%, 25%) 1px 1px;
+  }
+}
+
+@container style(--enable-transparency: 1) and style(--enable-blur: 1) {
+  .section__00943:has(.spotifySection__00943) img.largeImage__00943 {
+    filter: blur(var(--isc-bg-blur)) brightness(var(--isc-bg-brightness, 1)) !important;
+
+    top:    calc(var(--isc-bg-blur) * -1) !important;
+    left:   calc(var(--isc-bg-blur) * -1) !important;
+    width:  calc(100% + var(--isc-bg-blur) * 2) !important;
+    height: calc(100% + var(--isc-bg-blur) * 2) !important;
+  }
+}
+
+/* tooltip fix */
+@container style(--enable-transparency: 1) {
+  .card__39ec2:has([aria-label="Spotify"]) .imagePosition_ef9ae7,
+  .card__39ec2:has([aria-label="Spotify"]) img.contentImage__42bf5,
+  .section__00943:has(.spotifySection__00943) .activitySectionAssets__00943,
+  .section__00943:has(.spotifySection__00943) img.largeImage__00943 {
+    pointer-events: none !important;
+  }
+}
+
+/* hide the lucky block pleaceholder thing */
+@container style(--enable-transparency: 1) {
+  .card__39ec2:has([aria-label="Spotify"]) svg.contentImage__42bf5,
+  .section__00943:has(.spotifySection__00943) .activitySectionAssets__00943 svg {
+    display: none !important;
+  }
+}
+
 
 /* USER PANEL ORDER */
 
@@ -1442,30 +1580,30 @@ section.panels__5e434 .container__37e49     { order: var(--ics-panel-order-user)
 
 /* Tab items */
 .tabBarItem__37bfc.item_aa8da2 {
-  padding:        8px 10px !important;
-  margin:         0 !important;
-  font-size:      14px !important;
-  font-weight:    500 !important;
-  border-radius:  8px !important;
-  cursor:         pointer !important;
-  display:        inline-flex !important;
-  align-items:    center !important;
-  justify-content: center !important;
-  color:          var(--text-muted, #949ba4) !important;
+  padding:        8px 10px;
+  margin:         0;
+  font-size:      14px;
+  font-weight:    500;
+  border-radius:  8px;
+  cursor:         pointer;
+  display:        inline-flex;
+  align-items:    center;
+  justify-content: center;
+  color:          var(--text-muted, #949ba4);
   transition:
     background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
     color            0.2s cubic-bezier(0.4, 0, 0.2, 1),
-    transform        0.1s ease !important;
+    transform        0.1s ease;
 }
 
 /* Tab hover state */
 .tabBarItem__37bfc.item_aa8da2:hover {
-  color: var(--text-normal, #f2f3f5) !important;
+  color: var(--text-normal, #f2f3f5);
 }
 
 /* Tab selected state */
 .tabBarItem__37bfc.item_aa8da2.selected_aa8da2 {
-  color: var(--text-normal, #ffffff) !important;
+  color: var(--text-normal, #ffffff);
 }
 
 /* MISC */
@@ -1513,10 +1651,22 @@ section.panels__5e434 .container__37e49     { order: var(--ics-panel-order-user)
   }
 }
 
+/* fade for scrim */
+@keyframes scrimFadeIn {
+  from { opacity: 0.5; }
+  to   { opacity: 1; }
+}
+
+.scrim__40128 {
+  animation: scrimFadeIn 1s ease forwards;
+}
+
 /* new view profile button is hidden */
 .redesignFooter__272c7{
     display:none
 }
+
+/* not needed, if you need it just uncomment it (i think it's only used for images on full screen view aka extra blur)
 
 @container style(--enable-blur: 1) {
   .root__49fc1.root__49fc1,
@@ -1527,7 +1677,6 @@ section.panels__5e434 .container__37e49     { order: var(--ics-panel-order-user)
   }
 }
 
-/* invisible transparency with blur for modals background */
 .root__49fc1.root__49fc1 {
   border-radius: var(--radius-md);
 }
@@ -1537,6 +1686,8 @@ section.panels__5e434 .container__37e49     { order: var(--ics-panel-order-user)
     background-color: var(--transparency-modal);
   }
 }
+
+*/
 
 /* Separators fix */
 .footerSeparator__49fc1,
@@ -1604,20 +1755,33 @@ section.panels__5e434 .container__37e49     { order: var(--ics-panel-order-user)
   background-image: none !important;
 }
 
-/* transparency on edit menu */
+/* fixed thanks to translucense by caprikitten */
 @container style(--enable-transparency: 1) {
   .menu_c1e9c4 {
+    position: relative;
+    background-color: transparent !important;
+  }
+
+  .menu_c1e9c4::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
     background-color: var(--transparency-menu);
+    pointer-events: none;
   }
 }
 
 @container style(--enable-blur: 1) {
-  .menu_c1e9c4 {
-    backdrop-filter: var(--background-main-blur);
+  .menu_c1e9c4::before {
+    backdrop-filter: blur(var(--blur-popup));
+    -webkit-backdrop-filter: blur(var(--blur-popup));
   }
 }
 
-/* [Optional] Codeblocks */
+
+/* Optional CodeBlocks
 :root {
   --ag-bg: rgb(16, 16, 16);
   --ag-line: rgba(255, 255, 255, 0.07);
@@ -1634,7 +1798,7 @@ section.panels__5e434 .container__37e49     { order: var(--ics-panel-order-user)
   font-family: "JetBrains Mono", "Fira Code", Consolas, monospace;
 }
 
-/* plain text on the block's own background and bigger icon */
+plain text on the block's own background and bigger icon
 .vc-shiki-lang {
   display: flex;
   align-items: center;
@@ -1657,7 +1821,7 @@ section.panels__5e434 .container__37e49     { order: var(--ics-panel-order-user)
   line-height: 1;
 }
 
-/* Code table */
+Code table
 .vc-shiki-table {
   width: 100%;
   border-collapse: collapse;
@@ -1688,7 +1852,7 @@ section.panels__5e434 .container__37e49     { order: var(--ics-panel-order-user)
   padding-bottom: 8px;
 }
 
-/* Copy button */
+Copy button
 
 .vc-shiki-container:hover .vc-shiki-btns {
   opacity: 1;
@@ -1705,4 +1869,222 @@ section.panels__5e434 .container__37e49     { order: var(--ics-panel-order-user)
   font-weight: 500;
   cursor: pointer;
   transition: background 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+hide platform badge on chat
+.vc-platform-indicator {
+    display: none;
+}
+*/
+
+/*hide platform badge on chat*/
+.header_c19a55 .vc-platform-indicator {
+    display: none;
+}
+
+
+/* typing indicator */
+
+.typing_b88801 {
+  display: flex;
+  align-items: flex-end;
+  z-index: 2;
+  height: 25px;
+  padding: 0 10px 4px 18px;
+  margin-bottom: 16px;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+/* dots container */
+.typing_b88801 .typingDots_b88801 {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  padding: 4px 15px 4px 12px;
+  border-radius: 999px;
+  border: none;
+  overflow: hidden;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  animation: tiIn 0.38s cubic-bezier(0.2, 0.9, 0.3, 1.15) both;
+}
+
+@keyframes tiIn {
+  from { opacity: 0; transform: translateY(7px) scale(0.94); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* wave dots thingys that move */
+.typing_b88801 .typingDots_b88801 svg.ellipsis_b88801 {
+  display: block;
+  flex: 0 0 auto;
+  width: 21px;
+  height: 14px;
+  overflow: visible;
+  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--success-color) 65%, transparent));
+}
+
+.typing_b88801 .typingDots_b88801 svg.ellipsis_b88801 g {
+  animation: none;
+  opacity: 1;
+}
+
+.typing_b88801 .typingDots_b88801 svg.ellipsis_b88801 circle {
+  r: 2.2px;
+  cy: 11.5px;
+  fill: var(--text-normal);
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: tiWave var(--typing-speed) cubic-bezier(0.37, 0, 0.55, 1) infinite;
+}
+
+.typing_b88801 .typingDots_b88801 svg.ellipsis_b88801 circle:nth-of-type(1) { cx: 3px; }
+.typing_b88801 .typingDots_b88801 svg.ellipsis_b88801 circle:nth-of-type(2) { cx: 10.4px; animation-delay: 0.17s; }
+.typing_b88801 .typingDots_b88801 svg.ellipsis_b88801 circle:nth-of-type(3) { cx: 17.8px; animation-delay: 0.34s; }
+
+@keyframes tiWave {
+  0%, 100% { transform: scaleY(0.28); }
+  50%      { transform: scaleY(2.2); }
+}
+
+/* text label  */
+.typing_b88801 .typingDots_b88801 span.text_b88801:not([style]) {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1;
+}
+
+.typing_b88801 .typingDots_b88801 span.text_b88801:not([style]) strong {
+  color: var(--text-normal);
+  font-weight: 700;
+}
+
+/* profile customization section */
+.container__49804{
+    background-color: rgb(0,0,0);
+}
+
+/* premium part [not fully black] */
+.premiumTryItOutSection__2447f,
+.premiumGradientBackground__93bef,
+.lockDividerCircle__2447f {
+    background-color: black;
+}
+
+.selectFieldContainer__0edde{
+    border: none !important;
+}
+
+
+
+/*Fade anim for dms selection (a bit inspired by clearvision)*/
+
+.interactive__972a0 {
+  transition: background-color 0.25s ease-in-out, transform 0.25s ease-in-out;
+}
+.interactive__972a0:hover {
+  background-color: rgba(255, 255, 255, 0.07); 
+}
+
+/*Unread Message transparency / blur stuff*/
+
+@container style(--enable-transparency: 1) {
+    .newMessagesBar__0f481,
+    .barBase__0f481,
+    .barButtonMain__0f481,
+    .barButtonBase__0f481 {
+        background-color: var(--transparency-new-message);
+    }
+}
+
+@container style(--enable-blur: 1) {
+    .newMessagesBar__0f481,
+    .barBase__0f481,
+    .barButtonMain__0f481,
+    .barButtonBase__0f481 {
+        backdrop-filter: blur(var(--background-blur));
+    }
+}
+
+/*
+this removes links and badges
+.anchor__14d82{
+    display: none;
+}
+*/
+
+/*stuff to test (still)*/
+
+/*inbox*/
+@container style(--enable-transparency: 1) {
+    .container__8cb2e {
+        background-color: var(--background-main-transparency);
+    }
+
+    .box__376cb {
+        background-color: rgba(0,0,0,1);
+    }
+
+    .channelHeader__5d903 {
+        background-color: rgba(0,0,0,1);
+    }
+}
+
+@container style(--enable-blur: 1) {
+    .container__8cb2e {
+        backdrop-filter: blur(var(--background-blur));
+    }
+}
+
+/*tooltip (for user profile?)*/
+@container style(--enable-transparency: 1) {
+    .tooltipPrimary_c36707 {
+        background-color: rgba(0,0,0,0) !important;
+    }
+
+    .tooltipPointerBg_c36707 {
+        border-top-color: rgba(0,0,0,0) !important;
+    }
+}
+
+@container style(--enable-blur: 1) {
+    .tooltipPrimary_c36707 {
+        backdrop-filter: blur(5px) !important;
+    }
+}
+
+/*transparency to dropdown (server tags, idk if more...)*/
+@container style(--enable-transparency: 1) {
+    .selectDropdown__0edde {
+        background-color: rgba(0,0,0,0);
+    }
+}
+
+@container style(--enable-blur: 1) {
+    .selectDropdown__0edde {
+        backdrop-filter: blur(10px);
+    }
+}
+
+/* pinned message*/
+@container style(--enable-transparency: 1) {
+    .header__432f4,
+    .messagesPopoutWrap__432f4 {
+        background-color: rgba(0,0,0,0);
+    }
+}
+
+@container style(--enable-blur: 1) {
+    .header__432f4,
+    .messagesPopoutWrap__432f4 {
+        backdrop-filter: blur(25px);
+    }
 }
