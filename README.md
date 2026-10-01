@@ -2,10 +2,12 @@
 
 <br>
 
-# DARKVISION FORK
+<img src="https://i.imgur.com/7gKYJcu.png" alt="DarkVision Logo" width="350">
 
-**A TESTING PLACE FOR DARKVISION'S CSS**
+**THEME FORK**
 
+<sub>A TESTING PLACE FOR DARKVISION'S CSS</sub>
+<br>
 <sub>Features are tested here first, then they move to the official repository.</sub>
 
 </div>
