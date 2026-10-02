@@ -30,7 +30,8 @@
   /*t*/ --enable-typing-indicator: 0;
   /*t*/ --enable-custom-codeblock: 0;
   /*t*/ --disable-platform-badge-chat: 1;
-
+  /*t*/ --enable-spotify-extended-cover: 0;
+  
   /* Background */
   --background-main-transparency: rgba(0, 0, 0, 0);
   --background-shading: 160%;
