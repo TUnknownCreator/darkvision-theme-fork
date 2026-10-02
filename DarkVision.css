@@ -1,8 +1,8 @@
 :root {
-  
+
   /* Main */
-  --theme-version: 'Dev1.3.54 / 2.15.49';
-  --profile-gradient-overlay-color: #4d444444 !important;
+  --theme-version: 'Dev1.3.54 / 2.15.52-Preview';
+  --profile-gradient-overlay-color: #4d444444;
   --main-color: #292929;
   --main-color-border: #1A1717;
   --hover-color: #747474;
@@ -16,19 +16,23 @@
   --offline-color: #808080;
   --main-font: gg sans, Helvetica Neue, Helvetica, Arial, sans-serif;
   --code-font: Consolas, Liberation Mono, Menlo, Courier, monospace;
-  --text-normal: rgb(220, 221, 222);
-  --text-muted: rgb(114, 118, 125);
+  --text-normal: #DCDDDE;
+  --text-muted: #72767D;
   --channels-width: 220px;
   --members-width: 240px;
   --fade-banner-invite: #131416;
-  --onyx-profile-color: rgb(0, 0, 0);
+  --onyx-color: #000000;
 
   /* Toggles */
-  /*t*/ --enable-transparency: 1; 
-  /*t*/ --enable-blur: 1; 
-  /*t*/ --hide-status: 0; 
+  /*t*/ --enable-transparency: 1;
+  /*t*/ --enable-blur: 1;
+  /*t*/ --hide-status: 0;
+  /*t*/ --enable-typing-indicator: 0;
+  /*t*/ --enable-custom-codeblock: 0;
+  /*t*/ --disable-platform-badge-chat: 1;
 
   /* Background */
+  --background-main-transparency: rgba(0, 0, 0, 0);
   --background-shading: 160%;
   --background-image: url(); /*does not work btw*/
   --background-position: center;
@@ -41,7 +45,6 @@
   --background-invert: 0%;
   --background-grayscale: 0%;
   --background-sepia: 0%;
-  --background-main-transparency: rgba(0, 0, 0, 0);
   --background-main-blur: blur(var(--blur-main));
   --background-blur: calc(var(--enable-blur) * var(--blur-main));
 
@@ -51,11 +54,13 @@
 
   /* Blur */
   --blur-main: 40px;
+  --blur-spoiler: 40px;
+  --blur-temp: 25px;
   --blur-modal: 12px;
   --blur-popup: 10px;
+  --blur-dropdown: 10px;
   --blur-button: 8px;
   --blur-spotify-button: 8px;
-  --blur-spoiler: 40px;
 
   /* Channels */
   --channel-unread: var(--main-color);
@@ -79,27 +84,29 @@
   --backdrop-blur: var(--background-blur);
 
   /* Transparency */
-  --transparency-settings: #00000046;
-  --transparency-bio: #211f1f42;
-  --transparency-credentials: #0c0c0c83;
-  --transparency-keybinds: #2b2a2a63;
-  --transparency-quick-actions: #55555571;
-  --transparency-quick-actions-hover: #7e7e7e71;
-  --transparency-boost: #3d3d3d52;
-  --transparency-boost-dark: #141414a1;
-  --transparency-account: #03030333;
-  --transparency-account-banner: #1818183b;
-  --transparency-appearance: #03030356;
-  --transparency-popup: #14141494;
+  --transparency-settings: rgba(0, 0, 0, 0.27);
+  --transparency-bio: rgba(33, 31, 31, 0.26);
+  --transparency-credentials: rgba(12, 12, 12, 0.51);
+  --transparency-keybinds: rgba(43, 42, 42, 0.39);
+  --transparency-quick-actions: rgba(85, 85, 85, 0.44);
+  --transparency-quick-actions-hover: rgba(126, 126, 126, 0.44);
+  --transparency-boost: rgba(61, 61, 61, 0.32);
+  --transparency-boost-dark: rgba(20, 20, 20, 0.63);
+  --transparency-account: rgba(3, 3, 3, 0.2);
+  --transparency-account-banner: rgba(24, 24, 24, 0.23);
+  --transparency-appearance: rgba(3, 3, 3, 0.34);
+  --transparency-popup: rgba(20, 20, 20, 0.58);
   --transparency-modal: rgba(19, 20, 22, 0.5);
   --transparency-separator: rgba(19, 20, 22, 0.1);
   --transparency-tips: rgba(23, 24, 26, 0.6);
-  --transparency-banner-button: #00000063;
-  --transparency-scrim: #000000cc;
+  --transparency-banner-button: rgba(0, 0, 0, 0.39);
+  --transparency-scrim: rgba(0, 0, 0, 0.8);
   --transparency-spotify-button: rgba(38, 39, 43, 0.2);
   --transparency-menu: rgba(0, 0, 0, 0.5);
   --transparency-spotify-artwork: 0.3;
-  --transparency-new-message: rgba(0,0,0,0);
+  --transparency-new-message: rgba(0, 0, 0, 0);
+  --transparency-dropdowns: rgba(0, 0, 0, 0.5);
+
   /* User popout */
   --user-popout-image: var(--background-image);
   --user-popout-position: var(--background-position);
@@ -129,45 +136,65 @@
   --user-modal-sepia: var(--background-sepia);
   --user-modal-blur: calc(var(--background-blur) + 3px);
 
+  /*Custom codeblock*/
+  --custom-codeblock-bg: rgb(16, 16, 16);
+  --custom-codeblock-line: rgba(255, 255, 255, 0.07);
+  --custom-codeblock-text-dim: rgb(123, 131, 148);
+  --custom-codeblock-text: rgb(223, 227, 238);
+  --custom-codeblock-radius: 4px;
+
   /* Spotify: Background */
-  --isc-bg:            var(--bg-4, var(--background-base-low));
-  --isc-bg-blur:       2px;
+  --isc-bg: var(--bg-4, var(--background-base-low));
+  --isc-bg-blur: 2px;
   --isc-bg-brightness: 0.5;
 
   /* Spotify: Panel order */
-  --ics-panel-order-activity:  1;
-  --ics-panel-order-spotify:   2;
+  --ics-panel-order-activity: 1;
+  --ics-panel-order-spotify: 2;
   --ics-panel-order-voicechat: 3;
-  --ics-panel-order-user:      4;
+  --ics-panel-order-user: 4;
 
   /* Spotify: Text & icons */
   --isc-song-title: var(--accent-4, var(--text-strong));
   --isc-icon-color: var(--text-1, var(--text-default));
 
   /* Spotify: Progress bar */
-  --isc-progress-bar:       var(--accent-2, hsl(141, 41%, 45%));
+  --isc-progress-bar: var(--accent-2, hsl(141, 41%, 45%));
   --isc-progress-bar-hover: var(--accent-2, hsl(141, 41%, 65%));
   --isc-progress-bar-track: hsla(0, 0%, 100%, 0.2);
 
   /* Spotify: Buttons */
-  --isc-button-icon:       var(--text-4, var(--text-default));
+  --isc-button-icon: var(--text-4, var(--text-default));
   --isc-button-icon-hover: var(--text-1, var(--text-strong));
-  --isc-button-bg:         transparent;
-  --isc-button-bg-hover:   var(--hover, var(--background-mod-strong));
+  --isc-button-bg: transparent;
+  --isc-button-bg-hover: var(--hover, var(--background-mod-strong));
 
   /* Spotify: Toggled buttons */
-  --isc-button-toggled-icon:       var(--accent-4, hsl(141, 41%, 45%));
+  --isc-button-toggled-icon: var(--accent-4, hsl(141, 41%, 45%));
   --isc-button-toggled-icon-hover: var(--accent-4, hsl(141, 41%, 65%));
-  --isc-button-bg-base:            var(--accent-new, hsl(141, 41%, 45%));
-  --isc-button-toggled-bg:         color-mix(in hsl, var(--isc-button-bg-base), transparent 90%);
-  --isc-button-toggled-bg-hover:   color-mix(in hsl, var(--isc-button-bg-base), transparent 80%);
+  --isc-button-bg-base: var(--accent-new, hsl(141, 41%, 45%));
+  --isc-button-toggled-bg: color-mix(in hsl, var(--isc-button-bg-base), transparent 90%);
+  --isc-button-toggled-bg-hover: color-mix(in hsl, var(--isc-button-bg-base), transparent 80%);
 
   /* Transparent messaging */
-  --tm-enable:               1;
-  --tm-blur:                 10px;
+  --tm-enable: 1;
+  --tm-blur: 10px;
 
   /* Typing indicator */
   --typing-speed: 1.3s;
+
+  /* Spoiler styling */
+  --__spoiler-background-color--hidden: #ffffff9a;
+  --__spoiler-background-color--hidden--hover: #ffffffce;
+  --__spoiler-background-color--revealed: var(--background-mod-subtle);
+  --__spoiler-text-color--hidden: transparent;
+  --__spoiler-warning-text-color: var(--primary-200);
+  --__spoiler-warning-text-color--hover: var(--white);
+  --__spoiler-warning-background-color: var(--opacity-black-60);
+  --__spoiler-warning-background-color--hover: var(--opacity-black-88);
+  --__spoiler-container-box-shadow-color: var(--opacity-black-8);
+  --__obscured-background-blur-radius: calc(var(--enable-blur) * var(--blur-spoiler));
+  --__obscured-background-brightness: 0.55;
 }
 
 
@@ -179,48 +206,20 @@
   overflow: visible !important;
 }
 
+
+/*          @container: TRANSPARENCY            */
+
 @container style(--enable-transparency: 1) {
   .custom-user-profile-theme .profile__9c3be:before {
     background: none;
   }
-}
 
-
-
-/* VENCORD  */
-.vc-form-switch {
-    margin-top: 20px;
-}
-
-
-/* Spoiler styling */
-.root, [data-popout-root], :root {
-  --__spoiler-background-color--hidden:         #ffffff9a;
-  --__spoiler-background-color--hidden--hover:  #ffffffce;
-  --__spoiler-background-color--revealed:       var(--background-mod-subtle);
-  --__spoiler-text-color--hidden:               transparent;
-  --__spoiler-warning-text-color:               var(--primary-200);
-  --__spoiler-warning-text-color--hover:        var(--white);
-  --__spoiler-warning-background-color:         var(--opacity-black-60);
-  --__spoiler-warning-background-color--hover:  var(--opacity-black-88);
-  --__spoiler-container-box-shadow-color:       var(--opacity-black-8);
-  --__obscured-background-blur-radius:          calc(var(--enable-blur) * var(--blur-spoiler));
-  --__obscured-background-brightness:           0.55;
-}
-
-
-
-
-
-/* Activity itemcards */
-@container style(--enable-transparency: 1) {
+  /* Activity itemcards */
   .itemCard__7e549 {
     background-color: transparent !important;
   }
-}
 
-/* Settings */
-@container style(--enable-transparency: 1) {
+  /* Settings */
   .scroller__6131a,
   .contentBody_e9e3ed {
     background-color: transparent !important;
@@ -229,17 +228,13 @@
   .navScroller__409aa {
     background-color: transparent !important;
   }
-}
 
-/* About Me / Bio BG */
-@container style(--enable-transparency: 1) {
+  /* About Me / Bio BG */
   .overlay_c0bea0 {
     background-color: var(--transparency-bio) !important;
   }
-}
 
-/* Message box */
-@container style(--enable-transparency: 1) {
+  /* Message box */
   .channelTextArea_f75fb0 {
     background-color: transparent !important;
   }
@@ -255,7 +250,224 @@
   .textArea__74017 {
     color: transparent !important;
   }
+
+  /* DM searchbar */
+  .DraftEditor-root,
+  .icon_c322aa {
+    background-color: transparent !important;
+  }
+
+  .images-light {
+    background-color: transparent !important;
+    color: transparent !important;
+  }
+
+  .title_c38106 {
+    background-color: transparent !important;
+  }
+
+  .tabListScroller__37bfc {
+    background-color: transparent !important;
+  }
+
+  .avatarContainer_dca174 { background: none !important; }
+  /* .container_dca174        { background-color: transparent !important; } <-- bad boy~ */
+  .avatarWrapper_dca174 { background-color: transparent !important; }
+  .chipletContainerInner__10651 { background-color: transparent !important; }
+
+  .svg__2338f {
+    background-color: transparent !important;
+  }
+
+  .bannerButton_fb7f94 {
+    background-color: var(--transparency-banner-button);
+  }
+
+  .input__0ed4f {
+    background-color: transparent;
+  }
+
+  /* Server banner black box */
+  .scroller__629e4 {
+    background-color: transparent !important;
+  }
+
+  /* Section backgrounds */
+  .section__00943 { background-color: transparent !important; }
+  .profileBody__9c3be { background-color: transparent !important; }
+  .tabPanelScroller__37bfc { background-color: transparent !important; }
+  .listScroller__9d78f { background-color: transparent !important; }
+  .container__8061a { background-color: transparent !important; }
+  .body__5be3e { background-color: transparent !important; }
+
+  /* Remove black boxes */
+  .profileHeader__9c3be,
+  .banner__68edb {
+    background-color: transparent !important;
+  }
+
+  .scrim__40128 {
+    background-color: var(--transparency-scrim);
+  }
+
+  /* Separators fix */
+  .footerSeparator__49fc1,
+  .separator__49fc1 {
+    background-color: var(--transparency-separator);
+  }
+
+  /* Tips fix */
+  .tips_ea12e5 {
+    background-color: var(--transparency-tips);
+  }
+
+  /* background transparency on onboarding */
+  /* promptContent_fe70ca <-- this was unnecessary because it was already transparent */
+  .prompt_fe70ca,
+  .navButtons_fe70ca,
+  .scrollerContent_fe70ca {
+    background-color: var(--background-main-transparency);
+  }
+
+  /* submenus fixed thanks to translucense by caprikitten */
+  .menu_c1e9c4 {
+    position: relative;
+    background-color: transparent !important;
+  }
+
+  .menu_c1e9c4::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    background-color: var(--transparency-menu);
+    pointer-events: none;
+  }
+
+  /*Unread Message transparency / blur stuff*/
+  .newMessagesBar__0f481,
+  .barBase__0f481,
+  .barButtonMain__0f481,
+  .barButtonBase__0f481 {
+    background-color: var(--transparency-new-message);
+  }
+
+  /*stuff to test (still)*/
+
+  /*inbox*/
+  .container__8cb2e {
+    background-color: var(--background-main-transparency);
+  }
+
+  .box__376cb {
+    background-color: rgba(0, 0, 0, 1);
+  }
+
+  .channelHeader__5d903 {
+    background-color: rgba(0, 0, 0, 1);
+  }
+
+  /*tooltip (for user profile?)*/
+  .tooltipPrimary_c36707 {
+    background-color: var(--background-main-transparency) !important;
+  }
+
+  .tooltipPointerBg_c36707 {
+    border-top-color: var(--background-main-transparency) !important;
+  }
+
+  /*transparency to dropdown (server tags, settings dropdown (country selector), idk if more...)*/
+  .selectDropdown__0edde {
+    background-color: var(--transparency-dropdowns);
+  }
+
+  /* pinned message*/
+  .header__432f4,
+  .messagesPopoutWrap__432f4 {
+    background-color: var(--background-main-transparency);
+  }
+
+  .panels__5e434 div.panel__5dec7.activityPanel__5e434 {
+    background-color: transparent;
+  }
 }
+
+
+/*          @container: BLUR            */
+ 
+@container style(--enable-blur: 1) {
+  /* BUTTONS */
+  .button__67645:active {
+    backdrop-filter: blur(var(--blur-button));
+  }
+ 
+  /* MISC */
+  .scrim__40128 {
+    backdrop-filter: var(--background-main-blur);
+  }
+ 
+  /* background transparency on onboarding */
+  /* promptContent_fe70ca <-- this was unnecessary because it was already transparent */
+  .prompt_fe70ca,
+  .navButtons_fe70ca,
+  .scrollerContent_fe70ca {
+    backdrop-filter: var(--background-main-blur);
+  }
+ 
+  /* submenus fixed thanks to translucense by caprikitten */
+  .menu_c1e9c4::before {
+    backdrop-filter: blur(var(--blur-popup));
+    -webkit-backdrop-filter: blur(var(--blur-popup));
+  }
+ 
+  /*Unread Message transparency / blur stuff*/
+  .newMessagesBar__0f481,
+  .barBase__0f481,
+  .barButtonMain__0f481,
+  .barButtonBase__0f481 {
+    backdrop-filter: blur(var(--background-blur));
+  }
+ 
+  /*stuff to test (still)*/
+ 
+  /*inbox*/
+  .container__8cb2e {
+    backdrop-filter: blur(var(--background-blur));
+  }
+ 
+  /*tooltip (for user profile?)*/
+  .tooltipPrimary_c36707 {
+    backdrop-filter: blur(5px) !important;
+  }
+ 
+  /* dropdowns */
+  .selectDropdown__0edde {
+    backdrop-filter: blur(var(--blur-dropdown));
+  }
+ 
+  /* pinned message */
+  .header__432f4,
+  .messagesPopoutWrap__432f4 {
+    backdrop-filter: blur(var(--blur-temp));
+  }
+}
+
+/*          @container: HIDE STATUS         */
+
+@container style(--hide-status: 1) {
+  .container_c9d15c {
+    display: none;
+  }
+}
+
+
+
+/* VENCORD  */
+.vc-form-switch {
+  margin-top: 20px;
+}
+
 
 .innerDisabled__74017 {
   pointer-events: auto !important;
@@ -279,27 +491,6 @@
 /* DM names */
 .name__20a53 .overflowTooltip__972a0 {
   color: rgb(121, 121, 121);
-}
-
-/* DM searchbar */
-@container style(--enable-transparency: 1) {
-  .DraftEditor-root,
-  .icon_c322aa {
-    background-color: transparent !important;
-  }
-}
-
-@container style(--enable-transparency: 1) {
-  .images-light {
-    background-color: transparent !important;
-    color: transparent !important;
-  }
-}
-
-@container style(--enable-transparency: 1) {
-  .title_c38106 {
-    background-color: transparent !important;
-  }
 }
 
 .theme-light {
@@ -348,12 +539,6 @@
 .friendsEmpty_c7ea19 .vertical_abf706 .text__33d12 {
   visibility: hidden;
   position: relative;
-}
-
-@container style(--hide-status: 1){
-  .container_c9d15c{
-    display: none;
-  }
 }
 
 
@@ -444,12 +629,6 @@
   order: 3;
 }
 
-@container style(--enable-transparency: 1) {
-  .tabListScroller__37bfc {
-    background-color: transparent !important;
-  }
-}
-
 .title_c38106 .title_edbb22 .icon_f34534 {
   display: none;
 }
@@ -502,12 +681,12 @@
   border-color: var(--main-color-border) !important;
 }
 
-.tabBody__133bf   { border: none !important; }
+.tabBody__133bf { border: none !important; }
 .container__9293f { border-bottom: none !important; }
-.scrollerBase_d125d2  { border: none !important; }
+.scrollerBase_d125d2 { border: none !important; }
 .subtitleContainer_f75fb0 { border: none !important; }
-.header_f37cb1    { border: none !important; box-shadow: none !important; }
-.content_f75fb0   { border: none !important; }
+.header_f37cb1 { border: none !important; box-shadow: none !important; }
+.content_f75fb0 { border: none !important; }
 
 .chat_f75fb0 {
   border-color: var(--main-color-border) !important;
@@ -528,7 +707,7 @@
   border-top-left-radius: 12px;
 }
 
-.header_f37cb1    { border-top-color: #5c4e47 !important; }
+.header_f37cb1 { border-top-color: #5c4e47 !important; }
 .container_f37cb1 { border-top-color: #5c4e47 !important; }
 .container__2637a { border-top-color: #5c4e47 !important; }
 
@@ -540,17 +719,6 @@
 
 .svg__2338f {
   border-radius: 20% !important;
-}
-
-@container style(--enable-transparency: 1) {
-  .avatarContainer_dca174  { background: none !important; }
-  /* .container_dca174        { background-color: transparent !important; } <-- bad boy~ */
-  .avatarWrapper_dca174    { background-color: transparent !important; }
-  .chipletContainerInner__10651 { background-color: transparent !important; }
-
-  .svg__2338f {
-    background-color: transparent !important;
-  }
 }
 
 .animatorLeft_faf9c0 {
@@ -590,12 +758,6 @@ span.guildTagContainer__63ed3 {
   display: none;
 }
 
-@container style(--enable-blur: 1) {
-  .button__67645:active {
-    backdrop-filter: blur(var(--blur-button));
-  }
-}
-
 /*
 Temp Fix
 
@@ -615,12 +777,6 @@ Temp Fix
 
 .bannerButton_fb7f94 {
   border-radius: 10px;
-}
-
-@container style(--enable-transparency: 1) {
-  .bannerButton_fb7f94 {
-    background-color: var(--transparency-banner-button);
-  }
 }
 
 /* and what idiot design this thing?  you did sir  fair enough
@@ -656,19 +812,6 @@ Temp Fix
 /* Settings searchbar */
 .input__0ed4f {
   box-shadow: none !important;
-}
-
-@container style(--enable-transparency: 1) {
-  .input__0ed4f {
-    background-color: transparent;
-  }
-}
-
-/* Server banner black box */
-@container style(--enable-transparency: 1) {
-  .scroller__629e4 {
-    background-color: transparent !important;
-  }
 }
 
 /* User profile sidebar footer. Thanks to Computing Cat */
@@ -751,16 +894,6 @@ Temp Fix
   width: max-content;
 }
 
-/* Section backgrounds */
-@container style(--enable-transparency: 1) {
-  .section__00943    { background-color: transparent !important; }
-  .profileBody__9c3be  { background-color: transparent !important; }
-  .tabPanelScroller__37bfc { background-color: transparent !important; }
-  .listScroller__9d78f  { background-color: transparent !important; }
-  .container__8061a  { background-color: transparent !important; }
-  .body__5be3e       { background-color: transparent !important; }
-}
-
 /* Hide forum header when post is open */
 .content_d125d2:has(.container__0f2e8) {
   .container__0f2e8,
@@ -823,16 +956,6 @@ Temp Fix
     width: 100%;
   }
 
-  .form_f75fb0 .buttons__74017 {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-
-  .form_f75fb0 .inner__74017 {
-    position: relative;
-  }
-
   .form_f75fb0 .markup__75297 {
     display: block;
     width: 150px;
@@ -841,17 +964,17 @@ Temp Fix
 }
 
 
-/* SETTINGS MENU */
+/* SETTINGS MENU                 DOES NOT WORK FULLY AS OF 2026/10/02*/
 
 /* Translucent settings menu by benzeel/computercat V2 */
 
 .fixedContent__409aa:after {
-  border-top-left-radius:  8px;
+  border-top-left-radius: 8px;
   border-top-right-radius: 8px;
 }
 
 @container style(--enable-transparency: 1) {
-  .content_e9e3ed       { background: var(--transparency-settings); }
+  .content_e9e3ed { background: var(--transparency-settings); }
   .contentHeader_e9e3ed { background: transparent !important; }
 }
 
@@ -860,7 +983,7 @@ Temp Fix
 
 .credentialList__6c75d {
   border-radius: 8px;
-  border:        1px solid var(--border-subtle);
+  border: 1px solid var(--border-subtle);
 }
 
 @container style(--enable-transparency: 1) {
@@ -880,10 +1003,10 @@ Temp Fix
 
 /* Vencord quick actions */
 @container style(--enable-transparency: 1) {
-  .vc-card-base                        { background: none; }
-  .vc-settings-quickActions-pill       { background: var(--transparency-quick-actions); }
+  .vc-card-base { background: none; }
+  .vc-settings-quickActions-pill { background: var(--transparency-quick-actions); }
   .vc-settings-quickActions-pill:hover { background: var(--transparency-quick-actions-hover); }
-  .vc-addon-card                       { background: none; }
+  .vc-addon-card { background: none; }
 }
 
 /* Server boosts */
@@ -893,15 +1016,15 @@ Temp Fix
 
 @container style(--enable-transparency: 1) {
   .appliedBoostContainer_ceb06a { background: none; }
-  .guildContainer__5dba5        { background: var(--transparency-boost); }
-  .boostContainer_ceb06a        { background: var(--transparency-boost-dark); }
-  .wrapper__5b98e               { background: var(--transparency-boost); }
+  .guildContainer__5dba5 { background: var(--transparency-boost); }
+  .boostContainer_ceb06a { background: var(--transparency-boost-dark); }
+  .wrapper__5b98e { background: var(--transparency-boost); }
 }
 
 /* Share Nitro */
 @container style(--enable-transparency: 1) {
   .expandedProgressBarContainerSettingsPage_a61c56 {
-    background:      none;
+    background: none;
     backdrop-filter: none;
   }
 }
@@ -917,8 +1040,8 @@ Temp Fix
 
 @container style(--enable-transparency: 1) {
   .accountProfileCard__1fed1 { background: var(--transparency-account); }
-  .background__1fed1        { background: var(--transparency-account-banner); }
-  .fieldList__1fed1         { background: none; }
+  .background__1fed1 { background: var(--transparency-account-banner); }
+  .fieldList__1fed1 { background: none; }
 }
 
 /* Appearance */
@@ -952,49 +1075,49 @@ Temp Fix
 
 /* Blurred album art as background */
 #vc-spotify-player::before {
-  position:            absolute;
-  top:                 0;
-  left:                0;
-  z-index:             0;
-  content:             '';
-  width:               100%;
-  height:              100%;
-  border-radius:       inherit;
-  background-image:    var(--vc-spotify-track-image);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  content: '';
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background-image: var(--vc-spotify-track-image);
   background-position: center;
-  background-size:     cover;
-  filter: brightness(var(--isc-bg-brightness, 1));
+  background-size: cover;
+  filter: brightness(var(--isc-bg-brightness));
 }
 
 @container style(--enable-blur: 1) {
   #vc-spotify-player::before {
-    filter: blur(var(--isc-bg-blur)) brightness(var(--isc-bg-brightness, 1));
+    filter: blur(var(--isc-bg-blur)) brightness(var(--isc-bg-brightness));
   }
 }
 
 /* Gradient fade at bottom */
 .panels__5e434:not(:has([style*="--custom-nameplate"])) #vc-spotify-player::after {
-  position:       absolute;
-  top:            0;
-  left:           0;
-  z-index:        0;
-  content:        '';
-  width:          100%;
-  height:         100%;
-  border-radius:  inherit;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  content: '';
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
   pointer-events: none;
-  background:     linear-gradient(to bottom, transparent 68%, var(--isc-bg));
+  background: linear-gradient(to bottom, transparent 68%, var(--isc-bg));
 }
 
 #vc-spotify-player {
   border-radius: inherit;
-  overflow:      hidden;
+  overflow: hidden;
 }
 
 #vc-spotify-info-wrapper,
 .vc-spotify-button {
   position: relative;
-  z-index:  1;
+  z-index: 1;
 }
 
 #vc-spotify-info-wrapper {
@@ -1003,38 +1126,38 @@ Temp Fix
 
 /* Song title & metadata icons */
 #vc-spotify-song-title {
-  color:       var(--isc-song-title);
+  color: var(--isc-song-title);
   text-shadow: hsl(0, 0%, 25%) 1px 1px;
 }
 
 #vc-spotify-song-title::before,
 #vc-spotify-song-title + p::before,
 #vc-spotify-song-title + p + p::before {
-  position:          absolute;
-  content:           ' ';
-  margin-left:       -17px;
-  padding:           7px;
-  background-color:  var(--isc-icon-color, white);
+  position: absolute;
+  content: ' ';
+  margin-left: -17px;
+  padding: 7px;
+  background-color: var(--isc-icon-color);
   -webkit-mask-size: contain;
-  mask-size:         contain;
+  mask-size: contain;
 }
 
 #vc-spotify-song-title::before {
-  margin-top:         3px;
+  margin-top: 3px;
   -webkit-mask-image: url('https://raw.githubusercontent.com/ISOUL22/rice/refs/heads/main/Vencord/assets/music-note.svg');
-  mask-image:         url('https://raw.githubusercontent.com/ISOUL22/rice/refs/heads/main/Vencord/assets/music-note.svg');
+  mask-image: url('https://raw.githubusercontent.com/ISOUL22/rice/refs/heads/main/Vencord/assets/music-note.svg');
 }
 
 #vc-spotify-song-title + p::before {
-  margin-top:         0px;
+  margin-top: 0;
   -webkit-mask-image: url('https://raw.githubusercontent.com/ISOUL22/rice/refs/heads/main/Vencord/assets/user.svg');
-  mask-image:         url('https://raw.githubusercontent.com/ISOUL22/rice/refs/heads/main/Vencord/assets/user.svg');
+  mask-image: url('https://raw.githubusercontent.com/ISOUL22/rice/refs/heads/main/Vencord/assets/user.svg');
 }
 
 #vc-spotify-song-title + p + p::before {
-  margin-top:         2px;
+  margin-top: 2px;
   -webkit-mask-image: url('https://raw.githubusercontent.com/ISOUL22/rice/refs/heads/main/Vencord/assets/disc-alt.svg');
-  mask-image:         url('https://raw.githubusercontent.com/ISOUL22/rice/refs/heads/main/Vencord/assets/disc-alt.svg');
+  mask-image: url('https://raw.githubusercontent.com/ISOUL22/rice/refs/heads/main/Vencord/assets/disc-alt.svg');
 }
 
 /* Progress bar */
@@ -1055,20 +1178,20 @@ Temp Fix
 }
 
 #vc-spotify-progress-bar .grabber__4c059 {
-  visibility:       hidden;
-  opacity:          0;
-  transition:       opacity 0.1s;
-  margin-top:       -8px;
-  margin-left:      -8px;
-  width:            16px;
-  height:           16px;
-  border:           solid 2px hsla(0, 0%, 0%, 0.3);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.1s;
+  margin-top: -8px;
+  margin-left: -8px;
+  width: 16px;
+  height: 16px;
+  border: solid 2px hsla(0, 0%, 0%, 0.3);
   background-color: var(--isc-progress-bar-hover);
 }
 
 #vc-spotify-progress-bar:hover .grabber__4c059 {
   visibility: visible;
-  opacity:    1;
+  opacity: 1;
 }
 
 /* Hide track durations */
@@ -1082,21 +1205,21 @@ Temp Fix
 }
 
 .vc-spotify-button {
-  margin:           0 15px;
-  width:            40px;
-  height:           25px;
-  border:           none;
-  color:            var(--isc-button-icon);
+  margin: 0 15px;
+  width: 40px;
+  height: 25px;
+  border: none;
+  color: var(--isc-button-icon);
   background-color: var(--isc-button-bg);
 }
 
 .vc-spotify-button:hover {
-  color:            var(--isc-button-icon-hover);
+  color: var(--isc-button-icon-hover);
   background-color: var(--isc-button-bg-hover);
 }
 
 .vc-spotify-button-icon {
-  width:  28px;
+  width: 28px;
   height: 28px;
 }
 
@@ -1104,14 +1227,14 @@ Temp Fix
 .vc-spotify-shuffle-on,
 .vc-spotify-repeat-context,
 .vc-spotify-repeat-track {
-  color:            var(--isc-button-toggled-icon);
+  color: var(--isc-button-toggled-icon);
   background-color: var(--isc-button-toggled-bg);
 }
 
 .vc-spotify-shuffle-on:hover,
 .vc-spotify-repeat-context:hover,
 .vc-spotify-repeat-track:hover {
-  color:            var(--isc-button-toggled-icon-hover);
+  color: var(--isc-button-toggled-icon-hover);
   background-color: var(--isc-button-toggled-bg-hover);
 }
 
@@ -1123,49 +1246,49 @@ Temp Fix
 
 svg.vc-spotify-shuffle,
 svg.vc-spotify-repeat {
-  background-color:      currentColor;
+  background-color: currentColor;
   -webkit-mask-position: center;
-  mask-position:         center;
-  -webkit-mask-repeat:   no-repeat;
-  mask-repeat:           no-repeat;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
 }
 
 svg.vc-spotify-shuffle {
   -webkit-mask-image: url('https://raw.githubusercontent.com/ISOUL22/rice/refs/heads/main/Vencord/assets/shuffle.svg');
-  mask-image:         url('https://raw.githubusercontent.com/ISOUL22/rice/refs/heads/main/Vencord/assets/shuffle.svg');
-  -webkit-mask-size:  24px 24px;
-  mask-size:          24px 24px;
+  mask-image: url('https://raw.githubusercontent.com/ISOUL22/rice/refs/heads/main/Vencord/assets/shuffle.svg');
+  -webkit-mask-size: 24px 24px;
+  mask-size: 24px 24px;
 }
 
 svg.vc-spotify-repeat {
   -webkit-mask-image: url('https://raw.githubusercontent.com/ISOUL22/rice/refs/heads/main/Vencord/assets/loop.svg');
-  mask-image:         url('https://raw.githubusercontent.com/ISOUL22/rice/refs/heads/main/Vencord/assets/loop.svg');
-  -webkit-mask-size:  20px 20px;
-  mask-size:          20px 20px;
+  mask-image: url('https://raw.githubusercontent.com/ISOUL22/rice/refs/heads/main/Vencord/assets/loop.svg');
+  -webkit-mask-size: 20px 20px;
+  mask-size: 20px 20px;
 }
 
 .vc-spotify-repeat-1 {
   padding-right: 25px;
-  font-weight:   500;
-  font-size:     1em;
+  font-weight: 500;
+  font-size: 1em;
 }
 
 /* Only when the user has a nameplate */
 .panels__5e434:has([style*="--custom-nameplate"]) #vc-spotify-player {
-  position:      relative;
+  position: relative;
   border-radius: 8px 8px 0 0;
 }
 
 .panels__5e434:has([style*="--custom-nameplate"]) .container__37e49 {
-  position:      relative;
-  z-index:       2;
-  overflow:      hidden;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
   border-radius: 0 0 8px 8px;
 }
 
 .panels__5e434:has([style*="--custom-nameplate"]) .container_df39b2 {
   border-radius: inherit;
-  overflow:      hidden;
+  overflow: hidden;
 }
 
 /* Spotify transparency thing extended for other places*/
@@ -1192,8 +1315,8 @@ svg.vc-spotify-repeat {
     object-fit: cover !important;
     object-position: center !important;
     z-index: -1 !important;
-    opacity: var(--transparency-spotify-artwork, 1) !important;
-    filter: brightness(var(--isc-bg-brightness, 1)) !important;
+    opacity: var(--transparency-spotify-artwork) !important;
+    filter: brightness(var(--isc-bg-brightness)) !important;
   }
 
   .card__39ec2:has([aria-label="Spotify"]) .imagePosition_ef9ae7 {
@@ -1202,7 +1325,6 @@ svg.vc-spotify-repeat {
     width: 0 !important;
     height: 0 !important;
   }
-
 
   .card__39ec2:has([aria-label="Spotify"]) .details__39ec2 {
     width: 100% !important;
@@ -1215,11 +1337,11 @@ svg.vc-spotify-repeat {
 /* spotify blur in the other places for the image */
 @container style(--enable-transparency: 1) and style(--enable-blur: 1) {
   .card__39ec2:has([aria-label="Spotify"]) img.contentImage__42bf5 {
-    filter: blur(var(--isc-bg-blur)) brightness(var(--isc-bg-brightness, 1)) !important;
+    filter: blur(var(--isc-bg-blur)) brightness(var(--isc-bg-brightness)) !important;
 
-    top:    calc(var(--isc-bg-blur) * -1) !important;
-    left:   calc(var(--isc-bg-blur) * -1) !important;
-    width:  calc(100% + var(--isc-bg-blur) * 2) !important;
+    top: calc(var(--isc-bg-blur) * -1) !important;
+    left: calc(var(--isc-bg-blur) * -1) !important;
+    width: calc(100% + var(--isc-bg-blur) * 2) !important;
     height: calc(100% + var(--isc-bg-blur) * 2) !important;
   }
 }
@@ -1252,54 +1374,54 @@ div[class*="card__"]:has(div[aria-label="Spotify"]) div[class*="actions__"] butt
   }
 
   div[class*="card__"]:has(div[aria-label="Spotify"]) div[class*="actions__"] button[class*="button_"]:hover div[class*="buttonChildrenWrapper_"] {
-    backdrop-filter: blur(0px) !important;
-    -webkit-backdrop-filter: blur(0px) !important;
+    backdrop-filter: blur(0) !important;
+    -webkit-backdrop-filter: blur(0) !important;
   }
 }
 
 /*spotify image extention (transparency + blur) to the friends page*/
 @container style(--enable-transparency: 1) {
   .section__00943:has(.spotifySection__00943) {
-    position:         relative !important;
-    overflow:         hidden !important;
-    z-index:          1 !important;
+    position: relative !important;
+    overflow: hidden !important;
+    z-index: 1 !important;
     background-color: transparent !important;
   }
 
   .section__00943:has(.spotifySection__00943) .spotifySection__00943.activitySection__00943 {
-    display:              grid !important;
+    display: grid !important;
     grid-template-columns: 1fr !important;
   }
 
   .section__00943:has(.spotifySection__00943) .activitySectionAssets__00943 {
-    position:      absolute !important;
-    inset:         0 !important;
-    width:         100% !important;
-    height:        100% !important;
-    margin:        0 !important;
-    padding:       0 !important;
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
     border-radius: 0 !important;
-    overflow:      visible !important;
-    background:    none !important;
-    z-index:       -1 !important;
+    overflow: visible !important;
+    background: none !important;
+    z-index: -1 !important;
   }
 
   .section__00943:has(.spotifySection__00943) img.largeImage__00943 {
-    position:      absolute !important;
-    top:           0 !important;
-    left:          0 !important;
-    width:         100% !important;
-    height:        100% !important;
-    max-width:     none !important;
-    min-height:    unset !important;
-    margin:        0 !important;
-    padding:       0 !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    min-height: unset !important;
+    margin: 0 !important;
+    padding: 0 !important;
     border-radius: 0 !important;
-    box-shadow:    none !important;
-    object-fit:    cover !important;
+    box-shadow: none !important;
+    object-fit: cover !important;
     object-position: center !important;
-    opacity:       var(--transparency-spotify-artwork, 1) !important;
-    filter:        brightness(var(--isc-bg-brightness, 1)) !important;
+    opacity: var(--transparency-spotify-artwork) !important;
+    filter: brightness(var(--isc-bg-brightness)) !important;
   }
 
   /* fade under */
@@ -1323,11 +1445,11 @@ div[class*="card__"]:has(div[aria-label="Spotify"]) div[class*="actions__"] butt
 
 @container style(--enable-transparency: 1) and style(--enable-blur: 1) {
   .section__00943:has(.spotifySection__00943) img.largeImage__00943 {
-    filter: blur(var(--isc-bg-blur)) brightness(var(--isc-bg-brightness, 1)) !important;
+    filter: blur(var(--isc-bg-blur)) brightness(var(--isc-bg-brightness)) !important;
 
-    top:    calc(var(--isc-bg-blur) * -1) !important;
-    left:   calc(var(--isc-bg-blur) * -1) !important;
-    width:  calc(100% + var(--isc-bg-blur) * 2) !important;
+    top: calc(var(--isc-bg-blur) * -1) !important;
+    left: calc(var(--isc-bg-blur) * -1) !important;
+    width: calc(100% + var(--isc-bg-blur) * 2) !important;
     height: calc(100% + var(--isc-bg-blur) * 2) !important;
   }
 }
@@ -1354,39 +1476,35 @@ div[class*="card__"]:has(div[aria-label="Spotify"]) div[class*="actions__"] butt
 /* USER PANEL ORDER */
 
 section.panels__5e434 {
-  display:        flex;
+  display: flex;
   flex-direction: column;
 }
 
 section.panels__5e434 .activityPanel__5e434 { order: var(--ics-panel-order-activity); }
-section.panels__5e434 #vc-spotify-player    { order: var(--ics-panel-order-spotify); }
-section.panels__5e434 .wrapper_e131a9       { order: var(--ics-panel-order-voicechat); }
-section.panels__5e434 .container__37e49     { order: var(--ics-panel-order-user); }
+section.panels__5e434 #vc-spotify-player { order: var(--ics-panel-order-spotify); }
+section.panels__5e434 .wrapper_e131a9 { order: var(--ics-panel-order-voicechat); }
+section.panels__5e434 .container__37e49 { order: var(--ics-panel-order-user); }
 
 .panels__5e434 .container_e131a9 {
   padding-top: 12px;
 }
+/*
+ Optional: expand panel to fit cover art
+ May affect layout if other panels are visible at the same time.
+*/
+@container style(--enable-spotify-extended-cover: 1) {
+  .panels__5e434:has(#vc-spotify-player) {
+    aspect-ratio: 1 / 1;
+   min-height:   auto;
+   max-height:   max-content;
+ }
 
-@container style(--enable-transparency: 1) {
-  .panels__5e434 div.panel__5dec7.activityPanel__5e434 {
-    background-color: transparent;
+ .panels__5e434:has(#vc-spotify-player):not(:has(.activityPanel__5e434, .containerRtcOpened__37e49)) {
+    #vc-spotify-progress-bar { margin-top: 180px; }
+    #vc-spotify-info-wrapper { padding-left: 24px; scale: 120%; }
   }
 }
 
-/* Optional: expand panel to fit cover art
- * May affect layout if other panels are visible at the same time.
- *
- * .panels__5e434:has(#vc-spotify-player) {
- *   aspect-ratio: 1 / 1;
- *   min-height:   auto;
- *   max-height:   max-content;
- * }
- *
- * .panels__5e434:has(#vc-spotify-player):not(:has(.activityPanel__5e434, .containerRtcOpened__37e49)) {
- *   #vc-spotify-progress-bar { margin-top: 180px; }
- *   #vc-spotify-info-wrapper { padding-left: 24px; scale: 120%; }
- * }
- */
 
 
 /* TRANSPARENT MESSAGING */
@@ -1419,15 +1537,15 @@ section.panels__5e434 .container__37e49     { order: var(--ics-panel-order-user)
       position: relative;
 
       &::before {
-        content:       "";
-        position:      absolute;
-        inset:         0;
+        content: "";
+        position: absolute;
+        inset: 0;
         border-radius: inherit;
       }
 
-        > * {
-          position: relative;
-        }
+      > * {
+        position: relative;
+      }
 
       > div.autocomplete__13533 {
         position: absolute;
@@ -1443,10 +1561,10 @@ section.panels__5e434 .container__37e49     { order: var(--ics-panel-order-user)
     }
 
     ol.scrollerInner__36d07::after {
-      display:   block;
-      content:   "";
-      position:  relative;
-      height:    50vh;
+      display: block;
+      content: "";
+      position: relative;
+      height: 50vh;
     }
 
     div.floatingBars__74017 .banner__183e8 {
@@ -1497,19 +1615,11 @@ section.panels__5e434 .container__37e49     { order: var(--ics-panel-order-user)
 
 /* Stretch profile background image to fill */
 .profileBody__9c3be div[style*="background-image"] {
-  position:              fixed !important;
-  inset:                 0px !important;
-  z-index:               -1 !important;
-  border-top-left-radius:  15px;
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: -1 !important;
+  border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-}
-
-/* Remove black boxes */
-@container style(--enable-transparency: 1) {
-  .profileHeader__9c3be,
-  .banner__68edb {
-    background-color: transparent !important;
-  }
 }
 
 /* Optional: alternate profile background approach (disabled)
@@ -1535,7 +1645,7 @@ section.panels__5e434 .container__37e49     { order: var(--ics-panel-order-user)
 
 /* Position fix for self profile background */
 .body_ce8328:has(.menus_ce8328) div[style*="background-image"] {
-  top:           -150px !important;
+  top: -150px !important;
   border-radius: 6px;
 }
 
@@ -1556,7 +1666,7 @@ section.panels__5e434 .container__37e49     { order: var(--ics-panel-order-user)
 
 /* Username z-index */
 .body_ce8328:has(.menus_ce8328) div {
-  z-index:       1;
+  z-index: 1;
   border-radius: 5px;
 }
 
@@ -1570,49 +1680,49 @@ section.panels__5e434 .container__37e49     { order: var(--ics-panel-order-user)
 
 /* Tab list container */
 .top_aa8da2[role="tablist"] {
-  display:     flex !important;
-  gap:         12px !important;
-  padding:     6px 8px !important;
+  display: flex !important;
+  gap: 12px !important;
+  padding: 6px 8px !important;
   align-items: center !important;
-  height:      auto !important;
+  height: auto !important;
 }
 
 /* Tab items */
 .tabBarItem__37bfc.item_aa8da2 {
-  padding:        8px 10px;
-  margin:         0;
-  font-size:      14px;
-  font-weight:    500;
-  border-radius:  8px;
-  cursor:         pointer;
-  display:        inline-flex;
-  align-items:    center;
+  padding: 8px 10px;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
   justify-content: center;
-  color:          var(--text-muted, #949ba4);
+  color: var(--text-muted);
   transition:
     background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-    color            0.2s cubic-bezier(0.4, 0, 0.2, 1),
-    transform        0.1s ease;
+    color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.1s ease;
 }
 
 /* Tab hover state */
 .tabBarItem__37bfc.item_aa8da2:hover {
-  color: var(--text-normal, #f2f3f5);
+  color: var(--text-normal);
 }
 
 /* Tab selected state */
 .tabBarItem__37bfc.item_aa8da2.selected_aa8da2 {
-  color: var(--text-normal, #ffffff);
+  color: var(--text-normal);
 }
 
 /* MISC */
 
 /* Mutual GDMs tab layout */
 .vc-mutual-gdms-modal-v2-tab-bar {
-  display:     flex !important;
-  flex-wrap:   wrap !important;
-  column-gap:  20px;
-  row-gap:     20px;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  column-gap: 20px;
+  row-gap: 20px;
 }
 
 .tabBarItem__37bfc {
@@ -1621,7 +1731,7 @@ section.panels__5e434 .container__37e49     { order: var(--ics-panel-order-user)
 
 .wrapper_da5890 {
   position: absolute;
-  z-index:  7;
+  z-index: 7;
 }
 
 .grainient-container {
@@ -1629,43 +1739,28 @@ section.panels__5e434 .container__37e49     { order: var(--ics-panel-order-user)
 }
 
 .scrim__40128 {
-  bottom:           0;
-  left:             0;
-  pointer-events:   auto;
-  position:         fixed;
-  right:            var(--devtools-sidebar-width, 0);
-  top:              0;
-  transform:        translateZ(0);
-}
-
-@container style(--enable-transparency: 1) {
-  .scrim__40128 {
-    background-color: var(--transparency-scrim);
-  }
-}
-
-@container style(--enable-blur: 1) {
-  .scrim__40128 {
-    backdrop-filter: var(--background-main-blur);
-  }
-}
-
-/* fade for scrim */
-@keyframes scrimFadeIn {
-  from { opacity: 0.5; }
-  to   { opacity: 1; }
-}
-
-.scrim__40128 {
+  bottom: 0;
+  left: 0;
+  pointer-events: auto;
+  position: fixed;
+  right: var(--devtools-sidebar-width, 0);
+  top: 0;
+  transform: translateZ(0);
+  /* fade for scrim */
   animation: scrimFadeIn 1s ease forwards;
 }
 
-/* new view profile button is hidden */
-.redesignFooter__272c7{
-    display:none
+@keyframes scrimFadeIn {
+  from { opacity: 0.5; }
+  to { opacity: 1; }
 }
 
-/* not needed, if you need it just uncomment it (i think it's only used for images on full screen view aka extra blur)
+/* new view profile button is hidden */
+.redesignFooter__272c7 {
+  display: none;
+}
+
+/* not needed, if you need it just uncomment it (i think it's only used for images on full screen view aka extra blur) won't even make a toggle for it cus useless and ugly
 
 @container style(--enable-blur: 1) {
   .root__49fc1.root__49fc1,
@@ -1694,13 +1789,6 @@ section.panels__5e434 .container__37e49     { order: var(--ics-panel-order-user)
   box-shadow: none;
 }
 
-@container style(--enable-transparency: 1) {
-  .footerSeparator__49fc1,
-  .separator__49fc1 {
-    background-color: var(--transparency-separator);
-  }
-}
-
 /* Tips fix */
 .tips_ea12e5 {
   border-radius: 8px;
@@ -1708,16 +1796,11 @@ section.panels__5e434 .container__37e49     { order: var(--ics-panel-order-user)
   padding: 16px;
 }
 
-@container style(--enable-transparency: 1) {
-  .tips_ea12e5 {
-    background-color: var(--transparency-tips);
-  }
-}
-
 /* fade for server links (banner) */
 .banner__083ae {
   position: relative;
 }
+
 .banner__083ae::after {
   content: "";
   position: absolute;
@@ -1729,257 +1812,203 @@ section.panels__5e434 .container__37e49     { order: var(--ics-panel-order-user)
   pointer-events: none;
 }
 
-/* background transparency on onboarding */
-/* promptContent_fe70ca <-- this was unnecessary because it was already transparent */
-@container style(--enable-transparency: 1) {
-  .prompt_fe70ca,
-  .navButtons_fe70ca,
-  .scrollerContent_fe70ca {
-    background-color: var(--background-main-transparency);
-  }
-}
-
-@container style(--enable-blur: 1) {
-  .prompt_fe70ca,
-  .navButtons_fe70ca,
-  .scrollerContent_fe70ca {
-    backdrop-filter: var(--background-main-blur);
-  }
-}
-
 /* quest thing near profile has transparency now */
 .wrapper__0d616,
 .postEnrollmentBackground__24e2c {
-  background-color: var(--onyx-profile-color);
+  background-color: var(--onyx-color);
   background-image: none !important;
 }
 
-/* fixed thanks to translucense by caprikitten */
-@container style(--enable-transparency: 1) {
-  .menu_c1e9c4 {
-    position: relative;
-    background-color: transparent !important;
+/*Custom Codeblock */
+@container style(--enable-custom-codeblock: 1) {
+  .vc-shiki-root {
+    border-radius: calc(var(--custom-codeblock-radius) - 1px);
+    background: var(--custom-codeblock-bg) !important;
+    overflow: hidden;
+    font-family: "JetBrains Mono", "Fira Code", Consolas, monospace;
   }
 
-  .menu_c1e9c4::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    border-radius: inherit;
-    background-color: var(--transparency-menu);
-    pointer-events: none;
+  /* plain text on the block's own background and bigger icon */
+  .vc-shiki-lang {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 8px 12px 4px;
+    padding: 0;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--custom-codeblock-text-dim);
+    background: none;
+    border: none;
+    width: fit-content;
+  }
+
+  .vc-shiki-devicon {
+    display: inline-block;
+    font-size: 14px;
+    line-height: 1;
+  }
+
+  /* Code table */
+  .vc-shiki-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  .vc-shiki-table-row:hover {
+    background: rgba(255, 255, 255, 0.035);
+  }
+
+  .vc-shiki-table-cell:first-child {
+    user-select: none;
+    min-width: 34px;
+    padding: 0 12px 0 14px;
+    text-align: right;
+    color: var(--custom-codeblock-text-dim) !important;
+    border-right: 1px solid var(--custom-codeblock-line);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .vc-shiki-table-cell:last-child {
+    padding: 0 16px 0 12px;
+  }
+
+  .vc-shiki-code {
+    display: block;
+    padding-bottom: 8px;
+  }
+
+  /* Copy button */
+
+  .vc-shiki-container:hover .vc-shiki-btns {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .vc-shiki-btn {
+    background: rgba(43, 43, 43) !important;
+    color: #dfe3ee !important;
+    border: 1px solid var(--custom-codeblock-line);
+    border-radius: 8px;
+    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
   }
 }
-
-@container style(--enable-blur: 1) {
-  .menu_c1e9c4::before {
-    backdrop-filter: blur(var(--blur-popup));
-    -webkit-backdrop-filter: blur(var(--blur-popup));
-  }
-}
-
-
-/* Optional CodeBlocks
-:root {
-  --ag-bg: rgb(16, 16, 16);
-  --ag-line: rgba(255, 255, 255, 0.07);
-  --ag-text-dim: rgb(123, 131, 148);
-  --ag-text: rgb(223, 227, 238);
-  --ag-radius: 4px;
-}
-
-
-.vc-shiki-root {
-  border-radius: calc(var(--ag-radius) - 1px);
-  background: var(--ag-bg) !important;
-  overflow: hidden;
-  font-family: "JetBrains Mono", "Fira Code", Consolas, monospace;
-}
-
-plain text on the block's own background and bigger icon
-.vc-shiki-lang {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  margin: 8px 12px 4px;
-  padding: 0;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  color: var(--ag-text-dim);
-  background: none;
-  border: none;
-  width: fit-content;
-}
-
-.vc-shiki-devicon {
-  display: inline-block;
-  font-size: 14px;
-  line-height: 1;
-}
-
-Code table
-.vc-shiki-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 13px;
-  line-height: 1.55;
-}
-
-.vc-shiki-table-row:hover {
-  background: rgba(255, 255, 255, 0.035);
-}
-
-.vc-shiki-table-cell:first-child {
-  user-select: none;
-  min-width: 34px;
-  padding: 0 12px 0 14px;
-  text-align: right;
-  color: var(--ag-text-dim) !important;
-  border-right: 1px solid var(--ag-line);
-  font-variant-numeric: tabular-nums;
-}
-
-.vc-shiki-table-cell:last-child {
-  padding: 0 16px 0 12px;
-}
-
-.vc-shiki-code {
-  display: block;
-  padding-bottom: 8px;
-}
-
-Copy button
-
-.vc-shiki-container:hover .vc-shiki-btns {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.vc-shiki-btn {
-  background: rgba(43, 43, 43) !important;
-  color: #dfe3ee !important;
-  border: 1px solid var(--ag-line);
-  border-radius: 8px;
-  padding: 4px 10px;
-  font-size: 11px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
-}
-
-hide platform badge on chat
-.vc-platform-indicator {
-    display: none;
-}
-*/
 
 /*hide platform badge on chat*/
-.header_c19a55 .vc-platform-indicator {
+@container style(--disable-platform-badge-chat: 1) {
+  .header_c19a55 .vc-platform-indicator {
     display: none;
+  }
 }
 
 
 /* typing indicator */
+@container style(--enable-typing-indicator: 1) {
+  .typing_b88801 {
+    display: flex;
+    align-items: flex-end;
+    z-index: 2;
+    height: 25px;
+    padding: 0 10px 4px 18px;
+    margin-bottom: 16px;
+    background: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+  }
 
-.typing_b88801 {
-  display: flex;
-  align-items: flex-end;
-  z-index: 2;
-  height: 25px;
-  padding: 0 10px 4px 18px;
-  margin-bottom: 16px;
-  background: transparent;
-  box-shadow: none;
-  backdrop-filter: none;
-}
+  /* dots container */
+  .typing_b88801 .typingDots_b88801 {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+    padding: 4px 15px 4px 12px;
+    border-radius: 999px;
+    border: none;
+    overflow: hidden;
+    background: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+    animation: tiIn 0.38s cubic-bezier(0.2, 0.9, 0.3, 1.15) both;
+  }
 
-/* dots container */
-.typing_b88801 .typingDots_b88801 {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  width: fit-content;
-  padding: 4px 15px 4px 12px;
-  border-radius: 999px;
-  border: none;
-  overflow: hidden;
-  background: transparent;
-  box-shadow: none;
-  backdrop-filter: none;
-  animation: tiIn 0.38s cubic-bezier(0.2, 0.9, 0.3, 1.15) both;
-}
+  @keyframes tiIn {
+    from { opacity: 0; transform: translateY(7px) scale(0.94); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
 
-@keyframes tiIn {
-  from { opacity: 0; transform: translateY(7px) scale(0.94); }
-  to   { opacity: 1; transform: translateY(0) scale(1); }
-}
+  /* wave dots thingys that move */
+  .typing_b88801 .typingDots_b88801 svg.ellipsis_b88801 {
+    display: block;
+    flex: 0 0 auto;
+    width: 21px;
+    height: 14px;
+    overflow: visible;
+    filter: drop-shadow(0 0 6px color-mix(in srgb, var(--success-color) 65%, transparent));
+  }
 
-/* wave dots thingys that move */
-.typing_b88801 .typingDots_b88801 svg.ellipsis_b88801 {
-  display: block;
-  flex: 0 0 auto;
-  width: 21px;
-  height: 14px;
-  overflow: visible;
-  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--success-color) 65%, transparent));
-}
+  .typing_b88801 .typingDots_b88801 svg.ellipsis_b88801 g {
+    animation: none;
+    opacity: 1;
+  }
 
-.typing_b88801 .typingDots_b88801 svg.ellipsis_b88801 g {
-  animation: none;
-  opacity: 1;
-}
+  .typing_b88801 .typingDots_b88801 svg.ellipsis_b88801 circle {
+    r: 2.2px;
+    cy: 11.5px;
+    fill: var(--text-normal);
+    transform-box: fill-box;
+    transform-origin: 50% 100%;
+    animation: tiWave var(--typing-speed) cubic-bezier(0.37, 0, 0.55, 1) infinite;
+  }
 
-.typing_b88801 .typingDots_b88801 svg.ellipsis_b88801 circle {
-  r: 2.2px;
-  cy: 11.5px;
-  fill: var(--text-normal);
-  transform-box: fill-box;
-  transform-origin: 50% 100%;
-  animation: tiWave var(--typing-speed) cubic-bezier(0.37, 0, 0.55, 1) infinite;
-}
+  .typing_b88801 .typingDots_b88801 svg.ellipsis_b88801 circle:nth-of-type(1) { cx: 3px; }
+  .typing_b88801 .typingDots_b88801 svg.ellipsis_b88801 circle:nth-of-type(2) { cx: 10.4px; animation-delay: 0.17s; }
+  .typing_b88801 .typingDots_b88801 svg.ellipsis_b88801 circle:nth-of-type(3) { cx: 17.8px; animation-delay: 0.34s; }
 
-.typing_b88801 .typingDots_b88801 svg.ellipsis_b88801 circle:nth-of-type(1) { cx: 3px; }
-.typing_b88801 .typingDots_b88801 svg.ellipsis_b88801 circle:nth-of-type(2) { cx: 10.4px; animation-delay: 0.17s; }
-.typing_b88801 .typingDots_b88801 svg.ellipsis_b88801 circle:nth-of-type(3) { cx: 17.8px; animation-delay: 0.34s; }
+  @keyframes tiWave {
+    0%, 100% { transform: scaleY(0.28); }
+    50% { transform: scaleY(2.2); }
+  }
 
-@keyframes tiWave {
-  0%, 100% { transform: scaleY(0.28); }
-  50%      { transform: scaleY(2.2); }
-}
+  /* text label  */
+  .typing_b88801 .typingDots_b88801 span.text_b88801:not([style]) {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    line-height: 1;
+  }
 
-/* text label  */
-.typing_b88801 .typingDots_b88801 span.text_b88801:not([style]) {
-  margin: 0;
-  color: var(--text-muted);
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.01em;
-  line-height: 1;
-}
-
-.typing_b88801 .typingDots_b88801 span.text_b88801:not([style]) strong {
-  color: var(--text-normal);
-  font-weight: 700;
+  .typing_b88801 .typingDots_b88801 span.text_b88801:not([style]) strong {
+    color: var(--text-normal);
+    font-weight: 700;
+  }
 }
 
 /* profile customization section */
-.container__49804{
-    background-color: rgb(0,0,0);
+.container__49804 {
+  background-color: rgb(0, 0, 0);
 }
 
 /* premium part [not fully black] */
 .premiumTryItOutSection__2447f,
 .premiumGradientBackground__93bef,
 .lockDividerCircle__2447f {
-    background-color: black;
+  background-color: black;
 }
 
-.selectFieldContainer__0edde{
-    border: none !important;
+.selectFieldContainer__0edde {
+  border: none !important;
 }
 
 
@@ -1989,101 +2018,18 @@ hide platform badge on chat
 .interactive__972a0 {
   transition: background-color 0.25s ease-in-out, transform 0.25s ease-in-out;
 }
+
 .interactive__972a0:hover {
-  background-color: rgba(255, 255, 255, 0.07); 
-}
-
-/*Unread Message transparency / blur stuff*/
-
-@container style(--enable-transparency: 1) {
-    .newMessagesBar__0f481,
-    .barBase__0f481,
-    .barButtonMain__0f481,
-    .barButtonBase__0f481 {
-        background-color: var(--transparency-new-message);
-    }
-}
-
-@container style(--enable-blur: 1) {
-    .newMessagesBar__0f481,
-    .barBase__0f481,
-    .barButtonMain__0f481,
-    .barButtonBase__0f481 {
-        backdrop-filter: blur(var(--background-blur));
-    }
+  background-color: rgba(255, 255, 255, 0.07);
 }
 
 /*
-this removes links and badges
+this removes links and badges won't make a toggle for it
 .anchor__14d82{
     display: none;
 }
 */
 
-/*stuff to test (still)*/
-
-/*inbox*/
-@container style(--enable-transparency: 1) {
-    .container__8cb2e {
-        background-color: var(--background-main-transparency);
-    }
-
-    .box__376cb {
-        background-color: rgba(0,0,0,1);
-    }
-
-    .channelHeader__5d903 {
-        background-color: rgba(0,0,0,1);
-    }
-}
-
-@container style(--enable-blur: 1) {
-    .container__8cb2e {
-        backdrop-filter: blur(var(--background-blur));
-    }
-}
-
-/*tooltip (for user profile?)*/
-@container style(--enable-transparency: 1) {
-    .tooltipPrimary_c36707 {
-        background-color: rgba(0,0,0,0) !important;
-    }
-
-    .tooltipPointerBg_c36707 {
-        border-top-color: rgba(0,0,0,0) !important;
-    }
-}
-
-@container style(--enable-blur: 1) {
-    .tooltipPrimary_c36707 {
-        backdrop-filter: blur(5px) !important;
-    }
-}
-
-/*transparency to dropdown (server tags, idk if more...)*/
-@container style(--enable-transparency: 1) {
-    .selectDropdown__0edde {
-        background-color: rgba(0,0,0,0);
-    }
-}
-
-@container style(--enable-blur: 1) {
-    .selectDropdown__0edde {
-        backdrop-filter: blur(10px);
-    }
-}
-
-/* pinned message*/
-@container style(--enable-transparency: 1) {
-    .header__432f4,
-    .messagesPopoutWrap__432f4 {
-        background-color: rgba(0,0,0,0);
-    }
-}
-
-@container style(--enable-blur: 1) {
-    .header__432f4,
-    .messagesPopoutWrap__432f4 {
-        backdrop-filter: blur(25px);
-    }
+.container__8a031 {
+  background-color: var(--onyx-color);
 }
