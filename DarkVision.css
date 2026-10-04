@@ -1,7 +1,7 @@
 :root {
 
   /* Main */
-  --theme-version: 'Dev1.3.54 / 2.15.52-Preview';
+  --theme-version: 'Dev1.3.54 / 2.15.53-Preview';
   --profile-gradient-overlay-color: #4d444444;
   --main-color: #292929;
   --main-color-border: #1A1717;
@@ -31,6 +31,7 @@
   /*t*/ --enable-custom-codeblock: 0;
   /*t*/ --disable-platform-badge-chat: 1;
   /*t*/ --enable-spotify-extended-cover: 0;
+  /*t*/ --dm-select-anim: 1;
   
   /* Background */
   --background-main-transparency: rgba(0, 0, 0, 0);
@@ -1275,9 +1276,34 @@ svg.vc-spotify-repeat {
 }
 
 /* Only when the user has a nameplate */
+.panels__5e434:has([style*="--custom-nameplate"]) {
+  contain: layout;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
 .panels__5e434:has([style*="--custom-nameplate"]) #vc-spotify-player {
+  position: static;
+  overflow: visible;
+}
+
+.panels__5e434:has([style*="--custom-nameplate"]) #vc-spotify-player::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  content: '';
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(to bottom, transparent 68%, var(--isc-bg));
+}
+
+.panels__5e434:has([style*="--custom-nameplate"]) > .wrapper_e131a9 {
   position: relative;
-  border-radius: 8px 8px 0 0;
+  z-index: 1;
+  background: transparent !important;
 }
 
 .panels__5e434:has([style*="--custom-nameplate"]) .container__37e49 {
@@ -1285,6 +1311,7 @@ svg.vc-spotify-repeat {
   z-index: 2;
   overflow: hidden;
   border-radius: 0 0 8px 8px;
+  background: var(--isc-bg);
 }
 
 .panels__5e434:has([style*="--custom-nameplate"]) .container_df39b2 {
@@ -2016,13 +2043,16 @@ section.panels__5e434 .container__37e49 { order: var(--ics-panel-order-user); }
 
 /*Fade anim for dms selection (a bit inspired by clearvision)*/
 
+@container style(--dm-select-anim: 1) {
 .interactive__972a0 {
   transition: background-color 0.25s ease-in-out, transform 0.25s ease-in-out;
 }
 
 .interactive__972a0:hover {
   background-color: rgba(255, 255, 255, 0.07);
+    }
 }
+
 
 /*
 this removes links and badges won't make a toggle for it
