@@ -1,7 +1,7 @@
 :root {
 
   /* Main */
-  --theme-version: 'Dev1.3.54 / 2.15.53-Preview';
+  --theme-version: 'Dev1.3.54 / 2.16.54-Preview';
   --profile-gradient-overlay-color: #4d444444;
   --main-color: #292929;
   --main-color-border: #1A1717;
@@ -1840,9 +1840,8 @@ section.panels__5e434 .container__37e49 { order: var(--ics-panel-order-user); }
   pointer-events: none;
 }
 
-/* quest thing near profile has transparency now */
-.wrapper__0d616,
-.postEnrollmentBackground__24e2c {
+/* quest thing dark */
+.postEnrollmentBackground__1699b {
   background-color: var(--onyx-color);
   background-image: none !important;
 }
@@ -2063,4 +2062,15 @@ this removes links and badges won't make a toggle for it
 
 .container__8a031 {
   background-color: var(--onyx-color);
+}
+
+
+/*pinged color*/
+.messageGroupWrapper__432f4{
+    background-color: rgb(5, 5, 5); /*these are currently testing values and will be removed later*/
+}
+
+/*reason for no transparency is cus discord doesn't actually blur ur image but it just puts blank over it and then blurs the blank*/
+.spoilerInnerContainer__299eb{
+    background-color: rgb(10,10,10);
 }
