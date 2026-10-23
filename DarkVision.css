@@ -1,7 +1,7 @@
 :root {
 
   /* Main */
-  --theme-version: 'Dev1.3.54 / 2.16.54-Preview';
+  --theme-version: 'Dev1.3.54 / 2.16.55-Preview';
   --profile-gradient-overlay-color: #4d444444;
   --main-color: #292929;
   --main-color-border: #1A1717;
@@ -55,10 +55,10 @@
   --home-size: 50px;
 
   /* Blur */
-  --blur-main: 40px;
-  --blur-spoiler: 40px;
+  --blur-main: 10px;
+  --blur-spoiler: 10px;
   --blur-temp: 25px;
-  --blur-modal: 12px;
+  --blur-modal: 10px;
   --blur-popup: 10px;
   --blur-dropdown: 10px;
   --blur-button: 8px;
@@ -1167,19 +1167,19 @@ Temp Fix
   margin: 0;
 }
 
-#vc-spotify-player .bar__4c059 {
+#vc-spotify-player [class*="bar_"] {
   background-color: var(--isc-progress-bar-track);
 }
 
-#vc-spotify-player .barFill__4c059 {
+#vc-spotify-player [class*="barFill_"] {
   background-color: var(--isc-progress-bar);
 }
 
-#vc-spotify-progress-bar:hover .barFill__4c059 {
+#vc-spotify-progress-bar:hover [class*="barFill_"] {
   background-color: var(--isc-progress-bar-hover);
 }
 
-#vc-spotify-progress-bar .grabber__4c059 {
+#vc-spotify-progress-bar [class*="grabber_"] {
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.1s;
@@ -1191,7 +1191,7 @@ Temp Fix
   background-color: var(--isc-progress-bar-hover);
 }
 
-#vc-spotify-progress-bar:hover .grabber__4c059 {
+#vc-spotify-progress-bar:hover [class*="grabber_"] {
   visibility: visible;
   opacity: 1;
 }
@@ -1779,8 +1779,8 @@ section.panels__5e434 .container__37e49 { order: var(--ics-panel-order-user); }
 }
 
 @keyframes scrimFadeIn {
-  from { opacity: 0.5; }
-  to { opacity: 1; }
+  from { opacity: 0; }
+  to { opacity: 0.6; }
 }
 
 /* new view profile button is hidden */
@@ -2073,4 +2073,18 @@ this removes links and badges won't make a toggle for it
 /*reason for no transparency is cus discord doesn't actually blur ur image but it just puts blank over it and then blurs the blank*/
 .spoilerInnerContainer__299eb{
     background-color: rgb(10,10,10);
+}
+
+
+
+
+
+
+
+/* uncategorized for now */
+
+/*image buttons*/
+.hoverButtonGroup__06ab4 {
+    background-color: rgba(0, 0, 1, 0); 
+    backdrop-filter: blur(3px);
 }
